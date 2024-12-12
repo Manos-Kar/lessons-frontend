@@ -1,0 +1,223 @@
+@import "./_variables.scss";
+@import "./_results.scss";
+
+body {
+  margin: 0;
+  font-family: "Arial";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $bg_color2;
+  color: $text_basic;
+  @media screen and (max-width: 500px) {
+    padding: 3px;
+  }
+}
+
+.loading {
+  width: 100%;
+  text-align: center;
+  margin-top: 300px;
+}
+
+.basicPageComponent {
+  margin-top: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media screen and (max-width: 500px) {
+    margin-top: 135px;
+  }
+
+  .loginInputContainer {
+    background-color: $bg_color;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    width: 400px;
+    height: 130px;
+    border-radius: 20px;
+    .inputContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      margin-right: 60px;
+      .loginInput {
+        width: 200px;
+        height: 30px;
+        padding: 0px 10px;
+        margin: 5px;
+        border-radius: 10px;
+        border: 1px solid #555555;
+      }
+    }
+  }
+  .loginButton {
+    width: 400px;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid #555555;
+    background-color: $bg_color2;
+    color: $text_basic;
+    font-size: 18px;
+    &:hover {
+      cursor: pointer;
+      background-color: $bg_color;
+    }
+  }
+}
+.predictionPage {
+  margin-top: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  .welcomeContainer {
+    height: 763px;
+    width: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 150px;
+    margin-left: 70px;
+    .welcome {
+      font-size: 40px;
+      font-weight: bold;
+    }
+    .userImageContainer {
+      width: 100px;
+      .userImg {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        border: 2px solid $text_basic;
+        //don't strecth the image
+        object-fit: cover;
+      }
+    }
+    .predictionDescription {
+      text-align: center;
+      width: 532px;
+    }
+    .teamsContainer {
+      height: 330px;
+      width: 532px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  }
+  .mainPredictionsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .emptyStandingsContainer {
+      width: 600px;
+      .emptyStandingsTitleContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: $text_basic;
+        border-radius: 10px 10px 0px 0px;
+
+        .emptyStandingsTitle {
+          font-size: 20px;
+          font-weight: bold;
+          color: black;
+        }
+      }
+      .standingsTable {
+        .standingsPositionsContainer {
+          border: 2px solid $text_basic;
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          height: 32px;
+
+          .standingsPosition {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            width: 30px;
+            justify-content: center;
+            .standingsPositionNumber {
+              margin: 3px;
+              width: 30px;
+              text-align: center;
+            }
+          }
+          .standingEmptySpot {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            width: 100%;
+            justify-content: center;
+          }
+        }
+      }
+    }
+    .submitPredictionButtonContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      width: 600px;
+      border-radius: 10px;
+      border: 1px solid #555555;
+      margin-top: 10px;
+      background-color: $bg_color2;
+      &:hover {
+        cursor: pointer;
+        background-color: $bg_color;
+      }
+      .submitPredictionButton {
+        color: white;
+        font-size: 26px;
+      }
+    }
+    .submitValidationMessageContainer {
+      margin-top: 10px;
+    }
+  }
+  .teamContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    background-color: $bg_color;
+    height: 20px;
+    padding: 3px;
+    border-radius: 15px;
+    margin: 5px;
+    position: relative;
+    cursor: pointer;
+    &:hover {
+      background-color: $bg_colorHover;
+    }
+    .removeTeam {
+      position: absolute;
+      right: 8px;
+      top: -14px;
+      color: white;
+    }
+    .teamName {
+      user-select: none;
+      margin-left: 5px;
+      width: 200px;
+      text-align: center;
+    }
+  }
+}

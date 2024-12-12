@@ -1,0 +1,514 @@
+.resultsPage {
+  margin: 10px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 830px;
+  width: 98%;
+  padding: 5px;
+  position: relative;
+}
+.resultsPage .predictionsContainer {
+  border-radius: 10px;
+  position: relative;
+  padding-left: 0px;
+  display: flex;
+  flex-direction: row;
+  width: 98%;
+  margin-bottom: 40px;
+}
+.resultsPage .predictionsContainer .predictionsTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 3px;
+  margin-left: 10px;
+}
+.resultsPage .predictionsContainer .predictionTablesContainer {
+  display: flex;
+  flex-direction: row;
+  min-width: 85%;
+  max-width: 90%;
+  flex-wrap: wrap;
+}
+.resultsPage .predictionsContainer .predictionTablesContainer .prediction {
+  width: 280px;
+  margin-top: 5px;
+  margin-left: 25px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 2px #ffffff;
+}
+.resultsPage .predictionsContainer .predictionTablesContainer .prediction .userInfoRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  height: 34px;
+  padding-top: 2px;
+  background-color: #ffffff;
+  border-radius: 8px 8px 0 0;
+}
+.resultsPage .predictionsContainer .predictionTablesContainer .prediction .userInfoRow .userImage {
+  width: 25px;
+  height: 25px;
+  border-radius: 15px;
+  border: 2px solid black;
+  margin-right: 6px;
+  margin-left: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.resultsPage .predictionsContainer .predictionTablesContainer .prediction .userInfoRow .userName {
+  font-size: 17px;
+  color: black;
+  font-weight: 600;
+}
+.resultsPage .predictionsContainer .predictionTablesContainer .prediction .predictionTable {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+}
+.resultsPage .predictionsContainer .predictionTablesContainer .prediction .predictionTable .predictionRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  height: 15px;
+  margin: 2px 0px;
+  border-bottom: 1px solid #ffffff;
+}
+.resultsPage .predictionsContainer .predictionTablesContainer .prediction .predictionTable .predictionRow:last-of-type {
+  border-bottom: 0px solid #ffffff;
+}
+.resultsPage .predictionsContainer .predictionTablesContainer .prediction .predictionTable .predictionRow .standingPosition {
+  margin-left: 10px;
+  font-size: 11px;
+  margin-right: 8px;
+  width: 15px;
+  text-align: center;
+}
+.resultsPage .predictionsContainer .predictionTablesContainer .prediction .predictionTable .predictionRow .teamName {
+  font-size: 11px;
+  font-weight: bold;
+}
+.resultsPage .predictionsContainer .predictionTablesContainer .prediction .predictionTable .predictionRow .teamLogo {
+  width: 12px;
+  margin-right: 3px;
+}
+.resultsPage .standingsRankingContainer {
+  margin-top: 3px;
+  margin-bottom: 10px;
+  position: relative;
+  width: 100%;
+  height: 410px;
+  padding-left: 0px;
+  display: flex;
+  flex-direction: row;
+}
+.resultsPage .standingsRankingContainer .standingsContainer {
+  border-radius: 10px;
+  margin-top: 3px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+.resultsPage .standingsRankingContainer .standingsContainer .standingsTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 3px;
+  margin-left: 10px;
+  width: 135px;
+}
+.resultsPage .standingsRankingContainer .standingsContainer .standingsTable {
+  width: 540px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: 1px solid #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 2px #ffffff;
+  margin-right: 20px;
+}
+.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingsTableTitlesContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  height: 40px;
+  background-color: #ffffff;
+  border-radius: 10px 10px 0 0;
+  padding-left: 10px;
+}
+.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingsTableTitle {
+  font-size: 13px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+}
+.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingsTableTitle.column1 {
+  width: 30px;
+}
+.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingsTableTitle.column2 {
+  width: 180px;
+}
+.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingsTableTitle.column3 {
+  width: 80px;
+}
+.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingsTableTitle.column4 {
+  width: 80px;
+}
+.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingsTableTitle.column5 {
+  width: 80px;
+}
+.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingsTableTitle.column6 {
+  width: 80px;
+}
+.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  height: 19px;
+  padding-left: 10px;
+  border-bottom: 1px solid #ffffff;
+}
+.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingRow:last-of-type {
+  border-bottom: 0px solid #ffffff;
+}
+.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingRow .standingsTableTitle {
+  font-size: 11px;
+  color: #ffffff;
+}
+.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingRow .standingsTableTitle.column2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingRow .standingsTableTitle.column2 .teamLogo {
+  width: 12px;
+  margin-right: 3px;
+}
+.resultsPage .standingsRankingContainer .rankingContainer {
+  display: flex;
+  flex-direction: row;
+}
+.resultsPage .standingsRankingContainer .rankingContainer .rankingTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 3px;
+  margin-left: 10px;
+  width: 135px;
+}
+.resultsPage .standingsRankingContainer .rankingContainer .rankingTable {
+  width: 340px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: 1px solid #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 2px #ffffff;
+  margin-right: 20px;
+  position: relative;
+}
+.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
+  border-bottom: 1px solid #ffffff;
+}
+.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow:last-of-type {
+  border-bottom: 0px solid #ffffff;
+}
+.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .rankingImageContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .rankingImageContainer .rankingImage {
+  width: 10px;
+}
+.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .rankingImageContainer .rankingImage.gold {
+  filter: drop-shadow(0 0 4px gold);
+}
+.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .rankingImageContainer .rankingImage.silver {
+  filter: drop-shadow(0 0 4px silver);
+}
+.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .rankingImageContainer .rankingImage.bronze {
+  filter: drop-shadow(0 0 4px #cd7f32);
+}
+.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .userPosition {
+  font-size: 11px;
+  font-weight: bold;
+  margin-right: 2px;
+  width: 15px;
+}
+.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .userName {
+  font-size: 11px;
+  font-weight: bold;
+  width: 190px;
+}
+.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .userImage {
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+  border: 2px solid black;
+  margin-right: 8px;
+  margin-left: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .userPoints {
+  font-size: 11px;
+  color: white;
+  cursor: pointer;
+}
+.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .pointsBreakdownPopUpCotnainer {
+  position: absolute;
+  width: 300px;
+  right: -317px;
+  top: 0px;
+  background-color: #ffffff;
+  z-index: 1;
+  border-radius: 10px;
+  padding: 5px;
+}
+.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .pointsBreakdownPopUpCotnainer .pointsBreakdownTitle {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .pointsBreakdownPopUpCotnainer .pointsBreakdownItem {
+  font-size: 10px;
+  color: white;
+}
+
+body {
+  margin: 0;
+  font-family: "Arial";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #a7b8b3;
+  color: #ffffff;
+}
+@media screen and (max-width: 500px) {
+  body {
+    padding: 3px;
+  }
+}
+
+.loading {
+  width: 100%;
+  text-align: center;
+  margin-top: 300px;
+}
+
+.basicPageComponent {
+  margin-top: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 500px) {
+  .basicPageComponent {
+    margin-top: 135px;
+  }
+}
+.basicPageComponent .loginInputContainer {
+  background-color: #426f77;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  width: 400px;
+  height: 130px;
+  border-radius: 20px;
+}
+.basicPageComponent .loginInputContainer .inputContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-right: 60px;
+}
+.basicPageComponent .loginInputContainer .inputContainer .loginInput {
+  width: 200px;
+  height: 30px;
+  padding: 0px 10px;
+  margin: 5px;
+  border-radius: 10px;
+  border: 1px solid #555555;
+}
+.basicPageComponent .loginButton {
+  width: 400px;
+  height: 30px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #555555;
+  background-color: #a7b8b3;
+  color: #ffffff;
+  font-size: 18px;
+}
+.basicPageComponent .loginButton:hover {
+  cursor: pointer;
+  background-color: #426f77;
+}
+
+.predictionPage {
+  margin-top: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.predictionPage .welcomeContainer {
+  height: 763px;
+  width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 150px;
+  margin-left: 70px;
+}
+.predictionPage .welcomeContainer .welcome {
+  font-size: 40px;
+  font-weight: bold;
+}
+.predictionPage .welcomeContainer .userImageContainer {
+  width: 100px;
+}
+.predictionPage .welcomeContainer .userImageContainer .userImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  border: 2px solid #ffffff;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.predictionPage .welcomeContainer .predictionDescription {
+  text-align: center;
+  width: 532px;
+}
+.predictionPage .welcomeContainer .teamsContainer {
+  height: 330px;
+  width: 532px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.predictionPage .mainPredictionsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.predictionPage .mainPredictionsContainer .emptyStandingsContainer {
+  width: 600px;
+}
+.predictionPage .mainPredictionsContainer .emptyStandingsContainer .emptyStandingsTitleContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 10px 10px 0px 0px;
+}
+.predictionPage .mainPredictionsContainer .emptyStandingsContainer .emptyStandingsTitleContainer .emptyStandingsTitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+.predictionPage .mainPredictionsContainer .emptyStandingsContainer .standingsTable .standingsPositionsContainer {
+  border: 2px solid #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  height: 32px;
+}
+.predictionPage .mainPredictionsContainer .emptyStandingsContainer .standingsTable .standingsPositionsContainer .standingsPosition {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 30px;
+  justify-content: center;
+}
+.predictionPage .mainPredictionsContainer .emptyStandingsContainer .standingsTable .standingsPositionsContainer .standingsPosition .standingsPositionNumber {
+  margin: 3px;
+  width: 30px;
+  text-align: center;
+}
+.predictionPage .mainPredictionsContainer .emptyStandingsContainer .standingsTable .standingsPositionsContainer .standingEmptySpot {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  justify-content: center;
+}
+.predictionPage .mainPredictionsContainer .submitPredictionButtonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 600px;
+  border-radius: 10px;
+  border: 1px solid #555555;
+  margin-top: 10px;
+  background-color: #a7b8b3;
+}
+.predictionPage .mainPredictionsContainer .submitPredictionButtonContainer:hover {
+  cursor: pointer;
+  background-color: #426f77;
+}
+.predictionPage .mainPredictionsContainer .submitPredictionButtonContainer .submitPredictionButton {
+  color: white;
+  font-size: 26px;
+}
+.predictionPage .mainPredictionsContainer .submitValidationMessageContainer {
+  margin-top: 10px;
+}
+.predictionPage .teamContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  background-color: #426f77;
+  height: 20px;
+  padding: 3px;
+  border-radius: 15px;
+  margin: 5px;
+  position: relative;
+  cursor: pointer;
+}
+.predictionPage .teamContainer:hover {
+  background-color: #484848;
+}
+.predictionPage .teamContainer .removeTeam {
+  position: absolute;
+  right: 8px;
+  top: -14px;
+  color: white;
+}
+.predictionPage .teamContainer .teamName {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  margin-left: 5px;
+  width: 200px;
+  text-align: center;
+}/*# sourceMappingURL=app.css.map */

@@ -1,9 +1,9 @@
-const GET_TEACHER_INFO = "predict/api/get_teacher_info/";
-const STUDENT_INFO = "predict/api/student_info/";
-const LESSON = "predict/api/lesson/";
-const SAVE_AVAILABLE_SCHEDULE = "predict/api/save_available_schedule/";
-const LOGIN = "predict/login/";
-const GET_CSRF_TOKEN = "predict/api/get_csrf_token/";
+const GET_TEACHER_INFO = "lessons/api/get_teacher_info/";
+const STUDENT_INFO = "lessons/api/student_info/";
+const LESSON = "lessons/api/lesson/";
+const SAVE_AVAILABLE_SCHEDULE = "lessons/api/save_available_schedule/";
+const LOGIN = "lessons/login/";
+const GET_CSRF_TOKEN = "lessons/api/get_csrf_token/";
 
 export type UrlOption =
   | "GET_TEACHER_INFO"
