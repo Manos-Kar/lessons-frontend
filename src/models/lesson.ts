@@ -1,25 +1,10 @@
-import { TimeBlock } from "./timeBlock";
+import { LessonInfo } from "./enums";
 
 export class Lesson {
   lessonId: string;
-  name: string;
-  totalWeeklyDurationMinutes: number;
-  timeBlocks: TimeBlock[];
-  scheduled: boolean;
-  constructor(
-    lessonId: string,
-    name: string,
-    totalWeeklyDurationMinutes: number,
-    timeBlocks: TimeBlock[],
-    scheduled: boolean,
-    pricePerHour: number
-  ) {
+  lesson_info: LessonInfo;
+  constructor(lessonId: string, lesson_info: LessonInfo) {
     this.lessonId = lessonId;
-    this.name = name;
-    this.totalWeeklyDurationMinutes = totalWeeklyDurationMinutes;
-    this.timeBlocks = timeBlocks;
-    this.scheduled = scheduled;
-    this.pricePerHour = pricePerHour;
+    this.lesson_info = lesson_info;
   }
-  pricePerHour: number;
 }

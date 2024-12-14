@@ -1,294 +1,114 @@
-.resultsPage {
+.calendarBackground {
+  background-color: #426f77;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 20px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.calendarBackground .calendarTitleContainer {
   margin: 10px;
-  margin-top: 50px;
+}
+.calendarBackground .calendarTitleContainer .calendarTitle {
+  margin: 0px;
+}
+.calendarBackground .calendarContainer {
+  padding: 10px;
+}
+.calendarBackground .calendarContainer .weekdaysContainer {
+  display: flex;
+  flex-direction: row;
+  background-color: pink;
+  border-radius: 10px;
+}
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  height: 830px;
-  width: 98%;
-  padding: 5px;
-  position: relative;
-}
-.resultsPage .predictionsContainer {
-  border-radius: 10px;
-  position: relative;
-  padding-left: 0px;
-  display: flex;
-  flex-direction: row;
-  width: 98%;
-  margin-bottom: 40px;
-}
-.resultsPage .predictionsContainer .predictionsTitle {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 3px;
-  margin-left: 10px;
-}
-.resultsPage .predictionsContainer .predictionTablesContainer {
-  display: flex;
-  flex-direction: row;
-  min-width: 85%;
-  max-width: 90%;
-  flex-wrap: wrap;
-}
-.resultsPage .predictionsContainer .predictionTablesContainer .prediction {
-  width: 280px;
-  margin-top: 5px;
-  margin-left: 25px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  border: 2px solid #ffffff;
-  box-shadow: 0 2px 2px #ffffff;
-}
-.resultsPage .predictionsContainer .predictionTablesContainer .prediction .userInfoRow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  height: 34px;
-  padding-top: 2px;
-  background-color: #ffffff;
-  border-radius: 8px 8px 0 0;
-}
-.resultsPage .predictionsContainer .predictionTablesContainer .prediction .userInfoRow .userImage {
-  width: 25px;
-  height: 25px;
-  border-radius: 15px;
-  border: 2px solid black;
-  margin-right: 6px;
-  margin-left: 5px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.resultsPage .predictionsContainer .predictionTablesContainer .prediction .userInfoRow .userName {
-  font-size: 17px;
-  color: black;
-  font-weight: 600;
-}
-.resultsPage .predictionsContainer .predictionTablesContainer .prediction .predictionTable {
-  display: flex;
-  flex-direction: column;
-  width: 270px;
-}
-.resultsPage .predictionsContainer .predictionTablesContainer .prediction .predictionTable .predictionRow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  height: 15px;
-  margin: 2px 0px;
-  border-bottom: 1px solid #ffffff;
-}
-.resultsPage .predictionsContainer .predictionTablesContainer .prediction .predictionTable .predictionRow:last-of-type {
-  border-bottom: 0px solid #ffffff;
-}
-.resultsPage .predictionsContainer .predictionTablesContainer .prediction .predictionTable .predictionRow .standingPosition {
-  margin-left: 10px;
-  font-size: 11px;
-  margin-right: 8px;
-  width: 15px;
-  text-align: center;
-}
-.resultsPage .predictionsContainer .predictionTablesContainer .prediction .predictionTable .predictionRow .teamName {
-  font-size: 11px;
-  font-weight: bold;
-}
-.resultsPage .predictionsContainer .predictionTablesContainer .prediction .predictionTable .predictionRow .teamLogo {
-  width: 12px;
-  margin-right: 3px;
-}
-.resultsPage .standingsRankingContainer {
-  margin-top: 3px;
-  margin-bottom: 10px;
-  position: relative;
-  width: 100%;
-  height: 410px;
-  padding-left: 0px;
-  display: flex;
-  flex-direction: row;
-}
-.resultsPage .standingsRankingContainer .standingsContainer {
-  border-radius: 10px;
-  margin-top: 3px;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-}
-.resultsPage .standingsRankingContainer .standingsContainer .standingsTitle {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 3px;
-  margin-left: 10px;
-  width: 135px;
-}
-.resultsPage .standingsRankingContainer .standingsContainer .standingsTable {
-  width: 540px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  border: 1px solid #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 2px 2px #ffffff;
-  margin-right: 20px;
-}
-.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingsTableTitlesContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  height: 40px;
-  background-color: #ffffff;
-  border-radius: 10px 10px 0 0;
-  padding-left: 10px;
-}
-.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingsTableTitle {
-  font-size: 13px;
-  font-weight: bold;
-  color: black;
-  text-align: center;
-}
-.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingsTableTitle.column1 {
-  width: 30px;
-}
-.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingsTableTitle.column2 {
-  width: 180px;
-}
-.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingsTableTitle.column3 {
-  width: 80px;
-}
-.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingsTableTitle.column4 {
-  width: 80px;
-}
-.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingsTableTitle.column5 {
-  width: 80px;
-}
-.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingsTableTitle.column6 {
-  width: 80px;
-}
-.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingRow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  height: 19px;
-  padding-left: 10px;
-  border-bottom: 1px solid #ffffff;
-}
-.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingRow:last-of-type {
-  border-bottom: 0px solid #ffffff;
-}
-.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingRow .standingsTableTitle {
-  font-size: 11px;
-  color: #ffffff;
-}
-.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingRow .standingsTableTitle.column2 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-}
-.resultsPage .standingsRankingContainer .standingsContainer .standingsTable .standingRow .standingsTableTitle.column2 .teamLogo {
-  width: 12px;
-  margin-right: 3px;
-}
-.resultsPage .standingsRankingContainer .rankingContainer {
-  display: flex;
-  flex-direction: row;
-}
-.resultsPage .standingsRankingContainer .rankingContainer .rankingTitle {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 3px;
-  margin-left: 10px;
-  width: 135px;
-}
-.resultsPage .standingsRankingContainer .rankingContainer .rankingTable {
-  width: 340px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  border: 1px solid #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 2px 2px #ffffff;
-  margin-right: 20px;
-  position: relative;
-}
-.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 30px;
-  border-bottom: 1px solid #ffffff;
-}
-.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow:last-of-type {
-  border-bottom: 0px solid #ffffff;
-}
-.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .rankingImageContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: center;
-  height: 30px;
-  width: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
 }
-.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .rankingImageContainer .rankingImage {
-  width: 10px;
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .availableHoursBlock {
+  background-color: green;
+  width: 100%;
+  position: absolute;
+  opacity: 0.6;
 }
-.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .rankingImageContainer .rankingImage.gold {
-  filter: drop-shadow(0 0 4px gold);
-}
-.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .rankingImageContainer .rankingImage.silver {
-  filter: drop-shadow(0 0 4px silver);
-}
-.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .rankingImageContainer .rankingImage.bronze {
-  filter: drop-shadow(0 0 4px #cd7f32);
-}
-.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .userPosition {
-  font-size: 11px;
-  font-weight: bold;
-  margin-right: 2px;
-  width: 15px;
-}
-.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .userName {
-  font-size: 11px;
-  font-weight: bold;
-  width: 190px;
-}
-.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .userImage {
-  width: 20px;
-  height: 20px;
-  border-radius: 15px;
-  border: 2px solid black;
-  margin-right: 8px;
-  margin-left: 5px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .userPoints {
-  font-size: 11px;
-  color: white;
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .lessonBlock {
+  width: 98%;
+  left: 1%;
+  position: absolute;
+  border-radius: 4px;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   cursor: pointer;
 }
-.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .pointsBreakdownPopUpCotnainer {
-  position: absolute;
-  width: 300px;
-  right: -317px;
-  top: 0px;
-  background-color: #ffffff;
-  z-index: 1;
-  border-radius: 10px;
-  padding: 5px;
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .lessonBlock .lessonBlockRow {
+  display: flex;
+  flex-direction: row;
+  padding: 6px;
+  align-items: center;
+  justify-content: space-between;
 }
-.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .pointsBreakdownPopUpCotnainer .pointsBreakdownTitle {
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .lessonBlock .lessonBlockRow .lessonBlockTime {
+  font-size: 10px;
+}
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .lessonBlock .lessonBlockRow .lessonBlockTitle {
+  font-size: 10px;
+}
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .lessonBlock .lessonBlockRow .studentName {
+  font-size: 10px;
+}
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .lessonBlock .lessonBlockRow .lockImage {
+  width: 20px;
+}
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer.first {
+  border: 0px solid black;
+}
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time {
+  font-size: 12px;
+  height: 16px;
+  width: 150px;
+  border-style: dashed;
+  border-width: 0.5px;
+  border-color: black;
   text-align: center;
 }
-.resultsPage .standingsRankingContainer .rankingContainer .rankingTable .rankingRow .pointsBreakdownPopUpCotnainer .pointsBreakdownItem {
-  font-size: 10px;
-  color: white;
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstQuarter {
+  border-width: 0.5px 0.5px 0 0.5px;
+}
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.secondQuarter {
+  border-width: 0px 0.5px 0 0.5px;
+}
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.thirdQuarter {
+  border-width: 0px 0.5px 0 0.5px;
+}
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.fourthQuarter {
+  border-width: 0px 0.5px 0.5px 0.5px;
+}
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstColumn {
+  border-color: transparent;
+  width: 40px;
+  margin-top: -7px;
+  height: 16px;
+  margin-bottom: 7px;
+}
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstColumn.secondQuarter, .calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstColumn.thirdQuarter, .calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstColumn.fourthQuarter {
+  visibility: hidden;
+}
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstRow {
+  border-color: transparent;
+  height: 40px;
+  width: 80px;
+  font-size: 16px;
+  color: black;
+}
+.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstRow.secondQuarter, .calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstRow.thirdQuarter, .calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstRow.fourthQuarter {
+  display: none;
 }
 
 body {
@@ -511,4 +331,10 @@ body {
   margin-left: 5px;
   width: 200px;
   text-align: center;
+}
+
+.appPage {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
 }/*# sourceMappingURL=app.css.map */

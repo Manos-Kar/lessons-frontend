@@ -1,5 +1,5 @@
 @import "./_variables.scss";
-@import "./_results.scss";
+@import "./_calendar.scss";
 
 body {
   margin: 0;
@@ -219,5 +219,13 @@ body {
       width: 200px;
       text-align: center;
     }
+  }
+}
+
+.appPage {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  .greetingContainer {
   }
 }

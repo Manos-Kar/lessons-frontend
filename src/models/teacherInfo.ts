@@ -1,17 +1,17 @@
-import { AvailableSchedule } from "./availableSchedule";
+import { AvailableSchedule } from "./enums";
 import { StudentInfo } from "./studentInfo";
 
 export class TeacherInfo {
   name: string;
   students: StudentInfo[];
-  availableSchedule: AvailableSchedule;
+  available_schedule: AvailableSchedule;
   constructor(
     name: string,
     students: StudentInfo[],
-    availableSchedule: AvailableSchedule
+    available_schedule: AvailableSchedule
   ) {
     this.name = name;
     this.students = students;
-    this.availableSchedule = availableSchedule;
+    this.available_schedule = available_schedule;
   }
 }

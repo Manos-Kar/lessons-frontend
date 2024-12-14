@@ -3,7 +3,7 @@ import { getUrl } from "./constants";
 import { get, patch, post } from "./requestTemplates";
 import { StudentInfo } from "../models/studentInfo";
 import { Lesson } from "../models/lesson";
-import { AvailableSchedule } from "../models/availableSchedule";
+import { AvailableSchedule } from "../models/enums";
 
 function getCredentialsFromCookie() {
   return Cookies.get("credentials");
