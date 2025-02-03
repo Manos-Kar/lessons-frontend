@@ -1,0 +1,127 @@
+.studentsComponent {
+  background-color: $bg_color3;
+  width: fit-content;
+  border-radius: 20px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  position: relative;
+  .studentsOverviewContainer {
+    margin: 10px;
+    .studentsOverviewHeader {
+      margin: 0px;
+    }
+    width: 600px;
+    .studentContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+
+      background-color: white;
+      height: 20px;
+      padding: 3px;
+      border-radius: 15px;
+      margin: 5px;
+      position: relative;
+      cursor: pointer;
+      &:hover {
+        background-color: pink;
+      }
+      .studentName,
+      .studentIndex,
+      .studentLessons {
+        user-select: none;
+        margin-left: 5px;
+        color: $bg_color3;
+        &.studentName {
+          width: 450px;
+        }
+      }
+    }
+  }
+  .addStudentContainer {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    .addStudentButton {
+      width: 200px;
+      height: 30px;
+      border-radius: 10px;
+      border: 1px solid #555555;
+      background-color: $bg_color2;
+      color: white;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      &:hover {
+        background-color: pink;
+      }
+    }
+  }
+
+  .studentMenuContainer {
+    position: fixed;
+    background-color: $bg_color3;
+    width: 1000px;
+    border-radius: 20px;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    height: 500px;
+    top: 20%;
+    left: calc(50% - 500px);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    .studentMenuClose {
+      margin: 8px 0px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      .closePopUp {
+        margin-right: 20px;
+        text-align: right;
+        cursor: pointer;
+      }
+    }
+    .studentMenu {
+      margin: 20px;
+      .studentMenuHeader {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+    .studentMenuInputs {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: row;
+      .studentMenuInput {
+        margin: 10px;
+        .studentMenuInputLabel {
+          cursor: default;
+        }
+        .studentMenuInput {
+          width: 200px;
+          height: 30px;
+          border-radius: 10px;
+          border: 1px solid #555555;
+          background-color: $bg_color2;
+          color: white;
+          font-size: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: text;
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+}

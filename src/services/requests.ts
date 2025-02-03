@@ -94,6 +94,27 @@ export const save_available_schedule = async (
   }
 };
 
+// POST @calculate_travel_time
+export const calculateTravelTime = async (
+  origin: string,
+  destination: string
+) => {
+  const headers = getHeaders();
+  console.log("request made with origin");
+  console.log(origin);
+  console.log("request made with destination");
+  console.log(destination);
+
+  try {
+    return await post(getUrl("CALCULATE_TRAVEL_TIME"), headers, {
+      origin: origin,
+      destination: destination,
+    });
+  } catch (error) {
+    return error;
+  }
+};
+
 //POST @api_login
 export const login = async (username: string, password: string) => {
   const headers = getHeaders();

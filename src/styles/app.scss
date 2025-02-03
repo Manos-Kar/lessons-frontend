@@ -1,5 +1,6 @@
 @import "./_variables.scss";
 @import "./_calendar.scss";
+@import "./_students.scss";
 
 body {
   margin: 0;
@@ -11,6 +12,7 @@ body {
   @media screen and (max-width: 500px) {
     padding: 3px;
   }
+  cursor: default;
 }
 
 .loading {
@@ -226,6 +228,17 @@ body {
   margin: 0;
   width: 100vw;
   height: 100vh;
-  .greetingContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  .leftSide {
+    .greetingContainer {
+      margin-left: 40px;
+      margin-top: 12px;
+      margin-bottom: -20px;
+      font-size: 25px;
+      font-weight: bold;
+    }
   }
 }

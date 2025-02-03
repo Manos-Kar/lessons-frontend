@@ -7,7 +7,6 @@ type Props = {
   teacherInfo: TeacherInfo;
 };
 export default function Calendar(props: Props) {
-  console.log(props.teacherInfo);
   const [lessonBlocks, setLessonBlocks] = useState<
     {
       studentId: string;
@@ -71,7 +70,6 @@ export default function Calendar(props: Props) {
       (startTime.getTime() - nineOClock.getTime()) / (1000 * 60 * 60);
     let differenceInHoursForHeight =
       (endTime.getTime() - startTime.getTime()) / (1000 * 60 * 60);
-    console.log(differenceInHoursForTop);
 
     let extraPixels = Math.floor(differenceInHoursForTop);
     if (extraPixels < 0) extraPixels = 0;

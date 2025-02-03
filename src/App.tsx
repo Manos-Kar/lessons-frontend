@@ -27,7 +27,6 @@ function App() {
   useEffect(() => {
     if (loading) {
       const credentials = Cookies.get("credentials");
-      console.log(credentials);
 
       if (credentials !== undefined) {
         setLoggedIn(true);

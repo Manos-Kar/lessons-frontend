@@ -4,6 +4,7 @@ const LESSON = "lessons/api/lesson/";
 const SAVE_AVAILABLE_SCHEDULE = "lessons/api/save_available_schedule/";
 const LOGIN = "lessons/login/";
 const GET_CSRF_TOKEN = "lessons/api/get_csrf_token/";
+const CALCULATE_TRAVEL_TIME = "lessons/api/calculate_travel_time/";
 
 export type UrlOption =
   | "GET_TEACHER_INFO"
@@ -11,7 +12,8 @@ export type UrlOption =
   | "LOGIN"
   | "STUDENT_INFO"
   | "LESSON"
-  | "SAVE_AVAILABLE_SCHEDULE";
+  | "SAVE_AVAILABLE_SCHEDULE"
+  | "CALCULATE_TRAVEL_TIME";
 
 export const getUrl = (option: UrlOption, ids?: string[]) => {
   let resUrl = "";
@@ -34,6 +36,9 @@ export const getUrl = (option: UrlOption, ids?: string[]) => {
       break;
     case "SAVE_AVAILABLE_SCHEDULE":
       resUrl += SAVE_AVAILABLE_SCHEDULE;
+      break;
+    case "CALCULATE_TRAVEL_TIME":
+      resUrl += CALCULATE_TRAVEL_TIME;
       break;
   }
 

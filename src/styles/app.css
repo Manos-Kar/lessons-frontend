@@ -37,11 +37,11 @@
   opacity: 0.6;
 }
 .calendarBackground .calendarContainer .weekdaysContainer .slotContainer .lessonBlock {
-  width: 98%;
+  width: 96%;
   left: 1%;
   position: absolute;
   border-radius: 4px;
-  border: 1px solid white;
+  border: 2px solid white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -111,6 +111,137 @@
   display: none;
 }
 
+.studentsComponent {
+  background-color: #426f77;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 20px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  position: relative;
+}
+.studentsComponent .studentsOverviewContainer {
+  margin: 10px;
+  width: 600px;
+}
+.studentsComponent .studentsOverviewContainer .studentsOverviewHeader {
+  margin: 0px;
+}
+.studentsComponent .studentsOverviewContainer .studentContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+  height: 20px;
+  padding: 3px;
+  border-radius: 15px;
+  margin: 5px;
+  position: relative;
+  cursor: pointer;
+}
+.studentsComponent .studentsOverviewContainer .studentContainer:hover {
+  background-color: pink;
+}
+.studentsComponent .studentsOverviewContainer .studentContainer .studentName,
+.studentsComponent .studentsOverviewContainer .studentContainer .studentIndex,
+.studentsComponent .studentsOverviewContainer .studentContainer .studentLessons {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  margin-left: 5px;
+  color: #426f77;
+}
+.studentsComponent .studentsOverviewContainer .studentContainer .studentName.studentName,
+.studentsComponent .studentsOverviewContainer .studentContainer .studentIndex.studentName,
+.studentsComponent .studentsOverviewContainer .studentContainer .studentLessons.studentName {
+  width: 450px;
+}
+.studentsComponent .addStudentContainer {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.studentsComponent .addStudentContainer .addStudentButton {
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid #555555;
+  background-color: #a7b8b3;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.studentsComponent .addStudentContainer .addStudentButton:hover {
+  background-color: pink;
+}
+.studentsComponent .studentMenuContainer {
+  position: fixed;
+  background-color: #426f77;
+  width: 1000px;
+  border-radius: 20px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  height: 500px;
+  top: 20%;
+  left: calc(50% - 500px);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+.studentsComponent .studentMenuContainer .studentMenuClose {
+  margin: 8px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+.studentsComponent .studentMenuContainer .studentMenuClose .closePopUp {
+  margin-right: 20px;
+  text-align: right;
+  cursor: pointer;
+}
+.studentsComponent .studentMenuContainer .studentMenu {
+  margin: 20px;
+}
+.studentsComponent .studentMenuContainer .studentMenu .studentMenuHeader {
+  font-size: 20px;
+  font-weight: bold;
+}
+.studentsComponent .studentMenuContainer .studentMenuInputs {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+}
+.studentsComponent .studentMenuContainer .studentMenuInputs .studentMenuInput {
+  margin: 10px;
+}
+.studentsComponent .studentMenuContainer .studentMenuInputs .studentMenuInput .studentMenuInputLabel {
+  cursor: default;
+}
+.studentsComponent .studentMenuContainer .studentMenuInputs .studentMenuInput .studentMenuInput {
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid #555555;
+  background-color: #a7b8b3;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: text;
+  padding-left: 20px;
+}
+
 body {
   margin: 0;
   font-family: "Arial";
@@ -118,6 +249,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #a7b8b3;
   color: #ffffff;
+  cursor: default;
 }
 @media screen and (max-width: 500px) {
   body {
@@ -337,4 +469,15 @@ body {
   margin: 0;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.appPage .leftSide .greetingContainer {
+  margin-left: 40px;
+  margin-top: 12px;
+  margin-bottom: -20px;
+  font-size: 25px;
+  font-weight: bold;
 }/*# sourceMappingURL=app.css.map */
