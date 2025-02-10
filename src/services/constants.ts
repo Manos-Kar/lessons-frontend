@@ -1,3 +1,5 @@
+import { DaysOfWeek } from "../models/enums";
+
 const GET_TEACHER_INFO = "lessons/api/get_teacher_info/";
 const STUDENT_INFO = "lessons/api/student_info/";
 const LESSON = "lessons/api/lesson/";
@@ -44,3 +46,31 @@ export const getUrl = (option: UrlOption, ids?: string[]) => {
 
   return process.env.REACT_APP_API_BASIC_URL + resUrl;
 };
+
+export const WEEKDAYS: DaysOfWeek[] = [
+  "",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
+  "Sun",
+];
+export const TIMES = [
+  "",
+  "09:00",
+  "10:00",
+  "11:00",
+  "12:00",
+  "13:00",
+  "14:00",
+  "15:00",
+  "16:00",
+  "17:00",
+  "18:00",
+  "19:00",
+  "20:00",
+  "21:00",
+  "22:00",
+];

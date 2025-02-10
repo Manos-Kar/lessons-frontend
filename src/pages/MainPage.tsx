@@ -1,5 +1,5 @@
-import Calendar from "../components/Calendar";
-import Students from "../components/Students";
+import MainCalendar from "../components/MainCalendar";
+import Students from "../components/main_components/Students";
 import GoogleAddress from "../components/GoogleAddress";
 import { TeacherInfo } from "../models/teacherInfo";
 import { useEffect, useState } from "react";
@@ -55,7 +55,7 @@ export default function MainPage(props: Props) {
         <div className="greetingContainer">
           {"Hi, " + props.teacherInfo.name}
         </div>
-        <Calendar teacherInfo={props.teacherInfo} />
+        {/* <MainCalendar teacherInfo={props.teacherInfo} /> */}
       </div>
       <div className="rightSide">
         <Students teacherInfo={props.teacherInfo} />

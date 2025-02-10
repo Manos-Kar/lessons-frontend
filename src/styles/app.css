@@ -13,103 +13,6 @@
 .calendarBackground .calendarTitleContainer .calendarTitle {
   margin: 0px;
 }
-.calendarBackground .calendarContainer {
-  padding: 10px;
-}
-.calendarBackground .calendarContainer .weekdaysContainer {
-  display: flex;
-  flex-direction: row;
-  background-color: pink;
-  border-radius: 10px;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  position: relative;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .availableHoursBlock {
-  background-color: green;
-  width: 100%;
-  position: absolute;
-  opacity: 0.6;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .lessonBlock {
-  width: 96%;
-  left: 1%;
-  position: absolute;
-  border-radius: 4px;
-  border: 2px solid white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .lessonBlock .lessonBlockRow {
-  display: flex;
-  flex-direction: row;
-  padding: 6px;
-  align-items: center;
-  justify-content: space-between;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .lessonBlock .lessonBlockRow .lessonBlockTime {
-  font-size: 10px;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .lessonBlock .lessonBlockRow .lessonBlockTitle {
-  font-size: 10px;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .lessonBlock .lessonBlockRow .studentName {
-  font-size: 10px;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .lessonBlock .lessonBlockRow .lockImage {
-  width: 20px;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer.first {
-  border: 0px solid black;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time {
-  font-size: 12px;
-  height: 16px;
-  width: 150px;
-  border-style: dashed;
-  border-width: 0.5px;
-  border-color: black;
-  text-align: center;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstQuarter {
-  border-width: 0.5px 0.5px 0 0.5px;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.secondQuarter {
-  border-width: 0px 0.5px 0 0.5px;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.thirdQuarter {
-  border-width: 0px 0.5px 0 0.5px;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.fourthQuarter {
-  border-width: 0px 0.5px 0.5px 0.5px;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstColumn {
-  border-color: transparent;
-  width: 40px;
-  margin-top: -7px;
-  height: 16px;
-  margin-bottom: 7px;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstColumn.secondQuarter, .calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstColumn.thirdQuarter, .calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstColumn.fourthQuarter {
-  visibility: hidden;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstRow {
-  border-color: transparent;
-  height: 40px;
-  width: 80px;
-  font-size: 16px;
-  color: black;
-}
-.calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstRow.secondQuarter, .calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstRow.thirdQuarter, .calendarBackground .calendarContainer .weekdaysContainer .slotContainer .time.firstRow.fourthQuarter {
-  display: none;
-}
 
 .studentsComponent {
   background-color: #426f77;
@@ -186,7 +89,7 @@
 .studentsComponent .studentMenuContainer {
   position: fixed;
   background-color: #426f77;
-  width: 1000px;
+  width: 1400px;
   border-radius: 20px;
   margin: 30px;
   display: flex;
@@ -194,7 +97,7 @@
   margin-top: 50px;
   height: 500px;
   top: 20%;
-  left: calc(50% - 500px);
+  left: calc(50% - 700px);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
 .studentsComponent .studentMenuContainer .studentMenuClose {
@@ -240,6 +143,92 @@
   justify-content: center;
   cursor: text;
   padding-left: 20px;
+}
+.studentsComponent .studentMenuAvailableScheduleThumbnail {
+  position: relative;
+}
+.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer {
+  position: absolute;
+  top: -350px;
+  left: -300px;
+  background-color: #426f77;
+  width: 1000px;
+  height: 1000px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .studentMenuCalendarContainerClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .studentMenuCalendarTitle {
+  font-size: 18px;
+  text-align: left;
+}
+.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .addRemoveDayAvailabilityContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-left: 20px;
+}
+.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .addRemoveDayAvailabilityContainer .addRemoveDayAvailability {
+  cursor: pointer;
+  font-size: 12px;
+  width: 121px;
+}
+.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .addRemoveDayAvailabilityContainer .addRemoveDayAvailability .addDayButton,
+.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .addRemoveDayAvailabilityContainer .addRemoveDayAvailability .removeDayButton,
+.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .addRemoveDayAvailabilityContainer .addRemoveDayAvailability .splitDayButton {
+  border-radius: 3px;
+  margin: 3px;
+  height: 20px;
+  text-align: center;
+  padding: 4px 0 0 0;
+  border: 1px solid #555555;
+  background-color: #a7b8b3;
+}
+.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .addRemoveDayAvailabilityContainer .addRemoveDayAvailability .addDayButton:hover,
+.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .addRemoveDayAvailabilityContainer .addRemoveDayAvailability .removeDayButton:hover,
+.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .addRemoveDayAvailabilityContainer .addRemoveDayAvailability .splitDayButton:hover {
+  background-color: pink;
+}
+.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuWeekdaysContainer {
+  width: 150px;
+  height: 65px;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuWeekdaysContainer:hover {
+  background-color: pink;
+}
+.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuWeekdaysContainer .studentMenuWeekdaysSlotContainer {
+  cursor: pointer;
+  width: 15px;
+  height: 55px;
+  margin-left: 2px;
+  margin-right: 3px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  font-size: 10px;
+}
+.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuWeekdaysContainer .studentMenuWeekdaysSlotContainer .studentMenuWeekdayAvailableBlock {
+  width: 100%;
+  height: 80%;
+  background-color: green;
+  cursor: pointer;
 }
 
 body {
@@ -480,4 +469,124 @@ body {
   margin-bottom: -20px;
   font-size: 25px;
   font-weight: bold;
+}
+
+.calendarContainer {
+  padding: 10px;
+}
+
+.weekdaysContainer {
+  display: flex;
+  flex-direction: row;
+  background-color: pink;
+  border-radius: 10px;
+}
+.weekdaysContainer.student {
+  zoom: 0.8;
+}
+.weekdaysContainer .slotContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+}
+.weekdaysContainer .slotContainer .availableHoursBlock {
+  background-color: green;
+  width: 100%;
+  position: absolute;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.weekdaysContainer .slotContainer .availableHoursBlock.student {
+  cursor: cursor;
+}
+.weekdaysContainer .slotContainer .availableHoursBlock .availableHoursBlockHandle {
+  height: 2px;
+  width: 100%;
+  background-color: black;
+}
+.weekdaysContainer .slotContainer .availableHoursBlock .availableHoursBlockHandle.up {
+  cursor: ns-resize;
+}
+.weekdaysContainer .slotContainer .availableHoursBlock .availableHoursBlockHandle.down {
+  cursor: ns-resize;
+}
+.weekdaysContainer .slotContainer .lessonBlock {
+  width: 96%;
+  left: 1%;
+  position: absolute;
+  border-radius: 4px;
+  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.weekdaysContainer .slotContainer .lessonBlock .lessonBlockRow {
+  display: flex;
+  flex-direction: row;
+  padding: 6px;
+  align-items: center;
+  justify-content: space-between;
+}
+.weekdaysContainer .slotContainer .lessonBlock .lessonBlockRow .lessonBlockTime {
+  font-size: 10px;
+}
+.weekdaysContainer .slotContainer .lessonBlock .lessonBlockRow .lessonBlockTitle {
+  font-size: 10px;
+}
+.weekdaysContainer .slotContainer .lessonBlock .lessonBlockRow .studentName {
+  font-size: 10px;
+}
+.weekdaysContainer .slotContainer .lessonBlock .lessonBlockRow .lockImage {
+  width: 20px;
+}
+.weekdaysContainer .slotContainer.first {
+  border: 0px solid black;
+}
+.weekdaysContainer .slotContainer .time {
+  color: black;
+  font-size: 12px;
+  height: 16px;
+  width: 150px;
+  border-style: dashed;
+  border-width: 0.5px;
+  border-color: black;
+  text-align: center;
+}
+.weekdaysContainer .slotContainer .time.firstQuarter {
+  border-width: 0.5px 0.5px 0 0.5px;
+}
+.weekdaysContainer .slotContainer .time.secondQuarter {
+  border-width: 0px 0.5px 0 0.5px;
+}
+.weekdaysContainer .slotContainer .time.thirdQuarter {
+  border-width: 0px 0.5px 0 0.5px;
+}
+.weekdaysContainer .slotContainer .time.fourthQuarter {
+  border-width: 0px 0.5px 0.5px 0.5px;
+}
+.weekdaysContainer .slotContainer .time.firstColumn {
+  border-color: transparent;
+  width: 40px;
+  margin-top: -7px;
+  height: 16px;
+  margin-bottom: 7px;
+}
+.weekdaysContainer .slotContainer .time.firstColumn.secondQuarter, .weekdaysContainer .slotContainer .time.firstColumn.thirdQuarter, .weekdaysContainer .slotContainer .time.firstColumn.fourthQuarter {
+  visibility: hidden;
+}
+.weekdaysContainer .slotContainer .time.firstRow {
+  border-color: transparent;
+  height: 40px;
+  width: 80px;
+  font-size: 16px;
+  color: black;
+}
+.weekdaysContainer .slotContainer .time.firstRow.secondQuarter, .weekdaysContainer .slotContainer .time.firstRow.thirdQuarter, .weekdaysContainer .slotContainer .time.firstRow.fourthQuarter {
+  display: none;
 }/*# sourceMappingURL=app.css.map */

@@ -242,3 +242,133 @@ body {
     }
   }
 }
+
+.calendarContainer {
+  padding: 10px;
+}
+
+.weekdaysContainer {
+  &.student {
+    zoom: 0.8;
+  }
+  display: flex;
+  flex-direction: row;
+  background-color: pink;
+  border-radius: 10px;
+
+  .slotContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+    .availableHoursBlock {
+      background-color: green;
+      width: 100%;
+      position: absolute;
+      opacity: 0.8;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &.student {
+        cursor: cursor;
+      }
+      .availableHoursBlockHandle {
+        height: 2px;
+        width: 100%;
+        background-color: black;
+        &.up {
+          cursor: ns-resize;
+        }
+        &.down {
+          cursor: ns-resize;
+        }
+      }
+    }
+    .lessonBlock {
+      width: 96%;
+      left: 1%;
+      position: absolute;
+      border-radius: 4px;
+      border: 2px solid white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+
+      .lessonBlockRow {
+        display: flex;
+        flex-direction: row;
+        padding: 6px;
+        align-items: center;
+        justify-content: space-between;
+
+        .lessonBlockTime {
+          font-size: 10px;
+        }
+        .lessonBlockTitle {
+          font-size: 10px;
+        }
+        .studentName {
+          font-size: 10px;
+        }
+        .lockImage {
+          width: 20px;
+        }
+      }
+    }
+    &.first {
+      border: 0px solid black;
+    }
+
+    .time {
+      color: black;
+      font-size: 12px;
+      height: $rowHeight;
+      width: $columnWidth;
+      border-style: dashed;
+      border-width: 0.5px;
+      border-color: black;
+      text-align: center;
+      &.firstQuarter {
+        border-width: 0.5px 0.5px 0 0.5px;
+      }
+      &.secondQuarter {
+        border-width: 0px 0.5px 0 0.5px;
+      }
+      &.thirdQuarter {
+        border-width: 0px 0.5px 0 0.5px;
+      }
+      &.fourthQuarter {
+        border-width: 0px 0.5px 0.5px 0.5px;
+      }
+
+      &.firstColumn {
+        //change the dash density
+        border-color: transparent;
+        width: 40px;
+        margin-top: -7px;
+        height: $rowHeight;
+        margin-bottom: 7px;
+        &.secondQuarter,
+        &.thirdQuarter,
+        &.fourthQuarter {
+          visibility: hidden;
+        }
+      }
+      &.firstRow {
+        border-color: transparent;
+        height: 40px;
+        width: 80px;
+        font-size: 16px;
+        color: black;
+        &.secondQuarter,
+        &.thirdQuarter,
+        &.fourthQuarter {
+          display: none;
+        }
+      }
+    }
+  }
+}

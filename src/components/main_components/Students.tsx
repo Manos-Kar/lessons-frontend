@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { TeacherInfo } from "../models/teacherInfo";
-import StudentMenu from "./StudentMenu";
+import { useState } from "react";
+import { TeacherInfo } from "../../models/teacherInfo";
+import StudentMenu from "../students_components/StudentMenu";
 
 type Props = {
   teacherInfo: TeacherInfo;
@@ -8,20 +8,6 @@ type Props = {
 export default function Students(props: Props) {
   const [studentMenuOn, setStudentMenuOn] = useState(false);
 
-  useEffect(() => {
-    document.addEventListener("click", turnOffStudentMenu);
-
-    return () => {
-      document.removeEventListener("click", turnOffStudentMenu);
-    };
-    // eslint-disable-next-line
-  }, []);
-
-  function turnOffStudentMenu(e: any) {
-    if (!e.target.id.includes("studentMenu")) {
-      setStudentMenuOn(false);
-    }
-  }
   return (
     <>
       <div className="studentsComponent">
