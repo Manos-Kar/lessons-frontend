@@ -1,5 +1,5 @@
 import { cloneDeep } from "lodash";
-import { AvailableSchedule, DaysOfWeek } from "../models/enums";
+import { TimeString } from "../models/enums";
 
 export const isDevEnv = () => process.env.REACT_APP_ENV === "dev";
 
@@ -16,7 +16,7 @@ export function deepCloneObject(object: any): any {
 export function calculateTopPosition(
   startingTime: string,
   endingTime: string,
-  rowHeight: number = 16
+  rowHeight: number = 16.05
 ) {
   let startTime = new Date(`1970-01-01T${startingTime}Z`);
   let endTime = new Date(`1970-01-01T${endingTime}Z`);
@@ -41,19 +41,17 @@ export function calculateTopPosition(
   };
 }
 
-export function getStartTime(available_schedule: [DaysOfWeek, string, string]) {
+export function getStartTime(available_schedule: [string, string]) {
   // 12:00 becomes 13:00, why?
 
+  return new Date(`2025-01-01T${available_schedule[0]}`);
+}
+
+export function getEndTime(available_schedule: [string, string]) {
   return new Date(`2025-01-01T${available_schedule[1]}`);
 }
 
-export function getEndTime(available_schedule: [DaysOfWeek, string, string]) {
-  return new Date(`2025-01-01T${available_schedule[2]}`);
-}
-
 export function timeToString(time: Date) {
-  console.log(time);
-
   let hours = time.getHours();
   let minutes = time.getMinutes();
   return `${hours.toString().padStart(2, "0")}:${minutes
@@ -69,4 +67,16 @@ export function calculateDiffernceInMinutes(startTime: Date, endTime: Date) {
   let differenceInMinutes =
     (endTime.getTime() - startTime.getTime()) / (1000 * 60);
   return differenceInMinutes;
+}
+
+export function parseTime(timeString: string) {
+  const [hour, minute] = timeString.split(":").map(Number);
+  return { hour, minute };
+}
+
+export function formatTime(hour: number, minute: number): TimeString {
+  return `${String(hour).padStart(2, "0")}:${String(minute).padStart(
+    2,
+    "0"
+  )}` as TimeString;
 }

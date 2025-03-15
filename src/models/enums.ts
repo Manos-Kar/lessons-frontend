@@ -1,16 +1,22 @@
 import { TimeBlock } from "./timeBlock";
 
-export type DaysOfWeek =
-  | ""
-  | "Mon"
-  | "Tue"
-  | "Wed"
-  | "Thu"
-  | "Fri"
-  | "Sat"
-  | "Sun";
+export type DaysOfWeek = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun";
 
-export type AvailableSchedule = [DaysOfWeek, string, string][];
+export type AvailableSchedule = {
+  [day in DaysOfWeek]: [TimeString, TimeString][];
+};
+
+export function defaultAvailableSchedule(): AvailableSchedule {
+  return {
+    Mon: [],
+    Tue: [],
+    Wed: [],
+    Thu: [],
+    Fri: [],
+    Sat: [],
+    Sun: [],
+  };
+}
 
 export type LessonInfo = {
   lesson: string;
@@ -29,3 +35,5 @@ export type LessonBlock = {
   lessonColor: string;
   locked: boolean;
 };
+
+export type TimeString = `${number}:${number}`;

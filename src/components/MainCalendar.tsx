@@ -42,6 +42,7 @@ export default function MainCalendar(props: Props) {
         <div className="calendarContainer">
           <CalendarComp
             availableSchedule={props.teacherInfo.available_schedule}
+            changeAvailableSchedule={() => {}}
             lessonBlocks={lessonBlocks}
           />
         </div>

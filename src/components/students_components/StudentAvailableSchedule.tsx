@@ -11,7 +11,7 @@ import {
   getStartTime,
   timeToString,
 } from "../../services/commonFunctions";
-import { DaysOfWeek } from "../../models/enums";
+import { AvailableSchedule, DaysOfWeek } from "../../models/enums";
 
 type Props = {
   studentInfo: StudentInfo;
@@ -21,64 +21,66 @@ export default function StudentAvailableSchedule(props: Props) {
   const [calendarOn, setCalendarOn] = useState(false);
 
   function addDay(day: DaysOfWeek) {
-    let tempDay = [day, "12:00", "16:00"];
+    let tempSchedule = ["14:00", "21:00"];
     let tempStudentInfo = deepCloneObject(props.studentInfo);
-    tempStudentInfo.available_schedule.push(tempDay);
+    tempStudentInfo.available_schedule[day].push(tempSchedule);
     props.setStudentInfo(tempStudentInfo);
   }
 
   function splitDay(day: DaysOfWeek) {
     let tempStudentInfo = deepCloneObject(props.studentInfo);
-    let splitSchedule1: [DaysOfWeek, string, string] = ["", "", ""];
-    let splitSchedule2: [DaysOfWeek, string, string] = ["", "", ""];
-    let indexToRemove = -1;
+    let splitSchedule1: [string, string] = ["", ""];
+    let splitSchedule2: [string, string] = ["", ""];
 
-    for (let [
-      index,
-      schedule,
-    ] of tempStudentInfo.available_schedule.entries()) {
-      if (schedule[0] !== day) continue;
-      let startTime = getStartTime(schedule);
-      let endTime = getEndTime(schedule);
-      if (calculateDiffernceInMinutes(startTime, endTime) > 60) {
-        console.log(timeToString(startTime));
-        console.log(calculateDiffernceInMinutes(startTime, endTime));
+    let schedule = tempStudentInfo.available_schedule[day][0];
 
-        splitSchedule1 = [
-          day,
-          timeToString(startTime),
-          addTimeToDate(
-            startTime,
-            calculateDiffernceInMinutes(startTime, endTime) / 2
-          ),
-        ];
-        splitSchedule2 = [
-          day,
-          addTimeToDate(
-            startTime,
-            calculateDiffernceInMinutes(startTime, endTime) / 2
-          ),
-          timeToString(endTime),
-        ];
-        indexToRemove = index;
-        break;
-      }
-    }
+    let startTime = getStartTime(schedule);
+    let endTime = getEndTime(schedule);
+    if (calculateDiffernceInMinutes(startTime, endTime) > 60) {
+      splitSchedule1 = [
+        timeToString(startTime),
+        addTimeToDate(
+          startTime,
+          calculateDiffernceInMinutes(startTime, endTime) / 2
+        ),
+      ];
+      splitSchedule2 = [
+        addTimeToDate(
+          startTime,
+          calculateDiffernceInMinutes(startTime, endTime) / 2
+        ),
+        timeToString(endTime),
+      ];
 
-    if (indexToRemove >= 0) {
-      tempStudentInfo.available_schedule.splice(indexToRemove, 1);
-      tempStudentInfo.available_schedule.push(splitSchedule1);
-      tempStudentInfo.available_schedule.push(splitSchedule2);
+      tempStudentInfo.available_schedule[day].splice(0, 1);
+      tempStudentInfo.available_schedule[day].push(splitSchedule1);
+      tempStudentInfo.available_schedule[day].push(splitSchedule2);
+      tempStudentInfo.available_schedule[day].sort(
+        (a: [string, string], b: [string, string]) => {
+          const timeToMinutes = (time: string) => {
+            const [hours, minutes] = time.split(":").map(Number);
+            return hours * 60 + minutes; // Convert time to total minutes
+          };
+
+          return timeToMinutes(a[0]) - timeToMinutes(b[0]);
+        }
+      );
+
       props.setStudentInfo(tempStudentInfo);
     }
   }
 
   function removeDay(day: DaysOfWeek) {
     let tempStudentInfo = deepCloneObject(props.studentInfo);
-    tempStudentInfo.available_schedule =
-      tempStudentInfo.available_schedule.filter(
-        (schedule: [DaysOfWeek, string, string]) => schedule[0] !== day
-      );
+    tempStudentInfo.available_schedule[day] = [];
+
+    props.setStudentInfo(tempStudentInfo);
+  }
+
+  function changeAvailableSchedule(availableSchedule: AvailableSchedule): void {
+    let tempStudentInfo = deepCloneObject(props.studentInfo);
+    tempStudentInfo.available_schedule = availableSchedule;
+
     props.setStudentInfo(tempStudentInfo);
   }
 
@@ -117,15 +119,13 @@ export default function StudentAvailableSchedule(props: Props) {
                 : "student"}
             </p>
             <div className="addRemoveDayAvailabilityContainer">
-              {WEEKDAYS.filter((day) => day !== "").map((day, dayIndex) => (
+              {WEEKDAYS.map((day, dayIndex) => (
                 <div
                   className="addRemoveDayAvailability"
                   id={`addRemoveDayAvailability-${day}`}
                   key={day}
                 >
-                  {props.studentInfo.available_schedule.filter(
-                    (availableSlot) => availableSlot[0] === day
-                  ).length > 0 ? (
+                  {props.studentInfo.available_schedule[day].length > 0 ? (
                     <>
                       <div
                         className="removeDayButton"
@@ -150,6 +150,7 @@ export default function StudentAvailableSchedule(props: Props) {
             </div>
             <CalendarComp
               availableSchedule={props.studentInfo.available_schedule}
+              changeAvailableSchedule={changeAvailableSchedule}
               student
             />
           </div>

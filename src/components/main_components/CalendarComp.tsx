@@ -1,23 +1,45 @@
 import lockImg from "../../resources/images/lock.svg";
-import { AvailableSchedule, LessonBlock } from "../../models/enums";
+import {
+  AvailableSchedule,
+  DaysOfWeek,
+  LessonBlock,
+  TimeString,
+} from "../../models/enums";
 import { TIMES, WEEKDAYS } from "../../services/constants";
-import { calculateTopPosition } from "../../services/commonFunctions";
+import {
+  calculateTopPosition,
+  deepCloneObject,
+} from "../../services/commonFunctions";
+import ScheduleBlock from "./ScheduleBlock";
 
 type Props = {
   availableSchedule: AvailableSchedule;
-
+  changeAvailableSchedule: (availableSchedule: AvailableSchedule) => void;
   lessonBlocks?: LessonBlock[];
   student?: boolean;
 };
 export default function CalendarComp(props: Props) {
   if (props.student) {
-    console.log(props.availableSchedule);
+    // console.log(props.availableSchedule);
+  }
+
+  const weekdays: (DaysOfWeek | "")[] = ["", ...WEEKDAYS];
+
+  function changeScheduleBlock(
+    day: DaysOfWeek,
+    availableSlotIndex: number,
+    newAvailableSlot: [TimeString, TimeString]
+  ) {
+    let tempAvailableSchedule = deepCloneObject(props.availableSchedule);
+
+    tempAvailableSchedule[day][availableSlotIndex] = newAvailableSlot;
+    props.changeAvailableSchedule(tempAvailableSchedule);
   }
 
   return (
     <>
       <div className={`${props.student ? "student" : ""} weekdaysContainer`}>
-        {WEEKDAYS.map((day, dayIndex) => (
+        {weekdays.map((day, dayIndex) => (
           <div className={`slotContainer`} key={day}>
             {TIMES.map((slot, slotIndex) => (
               <div key={`${day}-${slot}`}>
@@ -56,39 +78,42 @@ export default function CalendarComp(props: Props) {
               </div>
             ))}
             {props.availableSchedule &&
-              props.availableSchedule
-                .filter((availableSlot) => availableSlot[0] === day)
-                .map((availableSlot, availableSlotIndex) => (
-                  <div
-                    className={`availableHoursBlock ${
-                      props.student ? "student" : ""
-                    }`}
+              day !== "" &&
+              props.availableSchedule[day].map(
+                (availableSlot, availableSlotIndex) => (
+                  <ScheduleBlock
                     key={`availableSlot-${availableSlotIndex}`}
-                    style={{
-                      top: calculateTopPosition!(
-                        availableSlot[1],
-                        availableSlot[2]
-                      ).top,
-                      height: calculateTopPosition!(
-                        availableSlot[1],
-                        availableSlot[2]
-                      ).height,
-                    }}
-                  >
-                    {props.student && (
-                      <>
-                        <div
-                          className="availableHoursBlockHandle up"
-                          id={`handle-${day}-${availableSlotIndex}-up`}
-                        ></div>
-                        <div
-                          className="availableHoursBlockHandle down"
-                          id={`handle-${day}-${availableSlotIndex}-down`}
-                        ></div>
-                      </>
-                    )}
-                  </div>
-                ))}
+                    blockStartTime={availableSlot[0]}
+                    blockEndTime={availableSlot[1]}
+                    timeSlotHeight={16.4}
+                    minutesPerSlot={15}
+                    calendarStartTime={"09:00"}
+                    calendarEndTime={"23:00"}
+                    onTimeChange={(newAvailableSlot) =>
+                      changeScheduleBlock(
+                        day,
+                        availableSlotIndex,
+                        newAvailableSlot
+                      )
+                    }
+                    limitStartTime={
+                      availableSlotIndex === 0
+                        ? "09:00"
+                        : props.availableSchedule[day][
+                            availableSlotIndex - 1
+                          ][1]
+                    }
+                    limitEndTime={
+                      availableSlotIndex ===
+                      props.availableSchedule[day].length - 1
+                        ? "23:00"
+                        : props.availableSchedule[day][
+                            availableSlotIndex + 1
+                          ][0]
+                    }
+                  />
+                )
+              )}
             {props.lessonBlocks &&
               props.lessonBlocks
                 .filter(

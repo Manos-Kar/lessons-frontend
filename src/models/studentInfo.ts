@@ -1,4 +1,4 @@
-import { AvailableSchedule } from "./enums";
+import { AvailableSchedule, defaultAvailableSchedule } from "./enums";
 import { Lesson } from "./lesson";
 
 export class StudentInfo {
@@ -22,6 +22,12 @@ export class StudentInfo {
   }
 
   static emptyStudentInfo() {
-    return new StudentInfo("new_student", "", "", [], []);
+    return new StudentInfo(
+      "new_student",
+      "",
+      "",
+      [],
+      defaultAvailableSchedule()
+    );
   }
 }

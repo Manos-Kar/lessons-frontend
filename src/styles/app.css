@@ -231,6 +231,83 @@
   cursor: pointer;
 }
 
+.scheduleBlockContainer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: green;
+  background-opacity: 0.8;
+  border-radius: 0.375rem;
+  border: 2px solid #a7b8b3;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: background-color 150ms;
+}
+.scheduleBlockContainer:hover {
+  background: lightgreen;
+}
+.scheduleBlockContainer.cursor-grab {
+  cursor: grab;
+}
+.scheduleBlockContainer.cursor-grabbing {
+  cursor: grabbing;
+}
+.scheduleBlockContainer.cursor-ns-resize {
+  cursor: ns-resize;
+}
+.scheduleBlockContainer .scheduleBlockHandle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0.5rem;
+  background: transparent;
+  cursor: ns-resize;
+}
+.scheduleBlockContainer .scheduleBlockHandle.top {
+  top: 0;
+}
+.scheduleBlockContainer .scheduleBlockHandle.bottom {
+  bottom: 0;
+}
+.scheduleBlockContainer .scheduleBlock {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+.availableHoursBlock {
+  background-color: green;
+  width: 100%;
+  position: absolute;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: move;
+}
+.availableHoursBlock.student {
+  cursor: cursor;
+}
+.availableHoursBlock .availableHoursBlockHandle {
+  height: 2px;
+  width: 100%;
+  background-color: black;
+}
+.availableHoursBlock .availableHoursBlockHandle.up {
+  cursor: ns-resize;
+}
+.availableHoursBlock .availableHoursBlockHandle.down {
+  cursor: ns-resize;
+}
+
 body {
   margin: 0;
   font-family: "Arial";
@@ -491,29 +568,6 @@ body {
   align-items: center;
   border-radius: 10px;
   position: relative;
-}
-.weekdaysContainer .slotContainer .availableHoursBlock {
-  background-color: green;
-  width: 100%;
-  position: absolute;
-  opacity: 0.8;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.weekdaysContainer .slotContainer .availableHoursBlock.student {
-  cursor: cursor;
-}
-.weekdaysContainer .slotContainer .availableHoursBlock .availableHoursBlockHandle {
-  height: 2px;
-  width: 100%;
-  background-color: black;
-}
-.weekdaysContainer .slotContainer .availableHoursBlock .availableHoursBlockHandle.up {
-  cursor: ns-resize;
-}
-.weekdaysContainer .slotContainer .availableHoursBlock .availableHoursBlockHandle.down {
-  cursor: ns-resize;
 }
 .weekdaysContainer .slotContainer .lessonBlock {
   width: 96%;

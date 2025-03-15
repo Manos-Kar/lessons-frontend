@@ -48,7 +48,6 @@ export const getUrl = (option: UrlOption, ids?: string[]) => {
 };
 
 export const WEEKDAYS: DaysOfWeek[] = [
-  "",
   "Mon",
   "Tue",
   "Wed",
@@ -57,6 +56,7 @@ export const WEEKDAYS: DaysOfWeek[] = [
   "Sat",
   "Sun",
 ];
+
 export const TIMES = [
   "",
   "09:00",
