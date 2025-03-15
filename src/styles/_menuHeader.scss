@@ -1,0 +1,22 @@
+.menuHeaderContainer {
+  width: 100%;
+  .menuHeaderContainerClose {
+    margin: 8px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    .closePopUp {
+      margin-right: 20px;
+      text-align: right;
+      cursor: pointer;
+    }
+  }
+  .menuHeaderTitleContainer {
+    margin: 20px;
+    .menuHeaderTitle {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}

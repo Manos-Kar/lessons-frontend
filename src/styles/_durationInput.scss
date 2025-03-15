@@ -1,0 +1,29 @@
+.durationInputContainer {
+  margin: 10px;
+  .durationInputLabel {
+    cursor: default;
+  }
+  .durationInputField {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .durationInput {
+      width: 60px;
+      height: 30px;
+      border-radius: 10px;
+      border: 1px solid #555555;
+      background-color: $bg_color2;
+      color: white;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: text;
+      padding-left: 20px;
+    }
+    .durationInputHoursDescription {
+      margin-left: 4px;
+      margin-right: 12px;
+    }
+  }
+}

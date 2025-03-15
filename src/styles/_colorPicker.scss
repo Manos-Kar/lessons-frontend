@@ -1,0 +1,42 @@
+.colorPickerContainer {
+  width: 100px;
+  margin-left: 12px;
+  .colorPickerLabel {
+  }
+  .colorPicker {
+    display: flex;
+    flex-direction: row;
+    .colorSelected {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+    }
+    .colorSelect {
+      margin-left: 4px;
+      .colorSelectDropdown {
+        position: absolute;
+        width: 50px;
+        margin-top: 15px;
+        cursor: pointer;
+        .dropdown {
+          cursor: pointer;
+          position: absolute;
+          width: 50px;
+          top: 3px;
+          background-color: $bg_color2;
+
+          .dropdown-option {
+            margin: 2px;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            &:hover {
+              border: 1px solid white;
+              box-sizing: border-box;
+            }
+          }
+          left: 15px;
+        }
+      }
+    }
+  }
+}

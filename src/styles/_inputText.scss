@@ -1,0 +1,28 @@
+.inputContainer {
+  margin: 10px;
+  .inputLabel {
+    cursor: default;
+  }
+  .inputField {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .inputText {
+      width: 200px;
+      height: 30px;
+      border-radius: 10px;
+      border: 1px solid #555555;
+      background-color: $bg_color2;
+      color: white;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: text;
+      padding-left: 20px;
+    }
+    .inputSuffix {
+      margin-left: 10px;
+    }
+  }
+}

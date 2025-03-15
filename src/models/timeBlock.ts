@@ -1,16 +1,16 @@
-import { DaysOfWeek } from "./enums";
+import { DaysOfWeek, TimeString } from "./enums";
 
 export class TimeBlock {
   timeBlockId: string;
   day: DaysOfWeek;
-  startTime: string;
-  endTime: string;
+  startTime: TimeString;
+  endTime: TimeString;
   locked: boolean;
   constructor(
     timeBlockId: string,
     day: DaysOfWeek,
-    startTime: string,
-    endTime: string,
+    startTime: TimeString,
+    endTime: TimeString,
     locked: boolean
   ) {
     this.timeBlockId = timeBlockId;

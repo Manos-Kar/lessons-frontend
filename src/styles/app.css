@@ -94,55 +94,30 @@
   margin: 30px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin-top: 50px;
   height: 500px;
   top: 20%;
   left: calc(50% - 700px);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
-.studentsComponent .studentMenuContainer .studentMenuClose {
-  margin: 8px 0px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-}
-.studentsComponent .studentMenuContainer .studentMenuClose .closePopUp {
-  margin-right: 20px;
-  text-align: right;
-  cursor: pointer;
-}
-.studentsComponent .studentMenuContainer .studentMenu {
-  margin: 20px;
-}
-.studentsComponent .studentMenuContainer .studentMenu .studentMenuHeader {
-  font-size: 20px;
-  font-weight: bold;
-}
-.studentsComponent .studentMenuContainer .studentMenuInputs {
+.studentsComponent .studentMenuContainer .studentMenuTop .studentMenuInputs {
   margin-top: 10px;
   display: flex;
+  flex-direction: column;
+}
+.studentsComponent .studentMenuContainer .studentMenuTop .studentMenuInputs .studentInfo {
+  display: flex;
   flex-direction: row;
 }
-.studentsComponent .studentMenuContainer .studentMenuInputs .studentMenuInput {
-  margin: 10px;
-}
-.studentsComponent .studentMenuContainer .studentMenuInputs .studentMenuInput .studentMenuInputLabel {
-  cursor: default;
-}
-.studentsComponent .studentMenuContainer .studentMenuInputs .studentMenuInput .studentMenuInput {
-  width: 200px;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid #555555;
-  background-color: #a7b8b3;
-  color: white;
-  font-size: 18px;
+.studentsComponent .studentMenuContainer .studentMenuBottom {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: text;
-  padding-left: 20px;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.studentsComponent .studentMenuContainer .studentMenuBottom .saveStudentContainer {
+  margin-right: 30px;
+  margin-bottom: 10px;
 }
 .studentsComponent .studentMenuAvailableScheduleThumbnail {
   position: relative;
@@ -230,7 +205,96 @@
   background-color: green;
   cursor: pointer;
 }
-
+.studentsComponent .studentMenuLessons .studentMenuLessonsHeader {
+  margin-left: 20px;
+}
+.studentsComponent .studentMenuLessons .studentMenuAddLessonButton {
+  cursor: pointer;
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid #555555;
+  background-color: #a7b8b3;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 10px;
+}
+.studentsComponent .studentMenuLessons .studentMenuAddLessonButton:hover {
+  cursor: pointer;
+  background-color: pink;
+}
+.studentsComponent .studentMenuLessons .studentMenuLessonsListContainer {
+  display: flex;
+  flex-direction: row;
+}
+.studentsComponent .studentMenuLessons .studentMenuLessonsListContainer .studentMenuLessonsList {
+  width: 800px;
+  max-width: 800px;
+  height: 140px;
+  background-color: #a7b8b3;
+  border-radius: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.studentsComponent .studentMenuLessons .studentMenuLessonsListContainer .studentMenuLessonsList .studentMenuLesson {
+  cursor: pointer;
+  min-width: 110px;
+  height: 80px;
+  border-radius: 16px;
+  border: 6px solid #426f77;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  transition: transform 0.3s ease;
+  margin: 20px;
+}
+.studentsComponent .studentMenuLessons .studentMenuLessonsListContainer .studentMenuLessonsList .studentMenuLesson .studentMenuLessonName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+.studentsComponent .studentMenuLessons .studentMenuLessonsListContainer .studentMenuLessonsList .studentMenuLesson .studentMenuLessonTime,
+.studentsComponent .studentMenuLessons .studentMenuLessonsListContainer .studentMenuLessonsList .studentMenuLesson .studentMenuLessonPrice {
+  font-size: 0.9rem;
+  margin: 4px 0;
+}
+.studentsComponent .studentMenuLessons .addLessonMenuContainer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: #426f77;
+  width: 1400px;
+  height: 500px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.studentsComponent .studentMenuLessons .addLessonMenuContainer .addLessonMenuTop {
+  width: 100%;
+}
+.studentsComponent .studentMenuLessons .addLessonMenuContainer .addLessonMenuBottom {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.studentsComponent .studentMenuLessons .addLessonMenuContainer .addLessonMenuBottom .saveLessonContainer {
+  margin-right: 30px;
+  margin-bottom: 10px;
+}
 .scheduleBlockContainer {
   position: absolute;
   left: 0;
@@ -306,6 +370,148 @@
 }
 .availableHoursBlock .availableHoursBlockHandle.down {
   cursor: ns-resize;
+}
+
+.inputContainer {
+  margin: 10px;
+}
+.inputContainer .inputLabel {
+  cursor: default;
+}
+.inputContainer .inputField {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.inputContainer .inputField .inputText {
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid #555555;
+  background-color: #a7b8b3;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: text;
+  padding-left: 20px;
+}
+.inputContainer .inputField .inputSuffix {
+  margin-left: 10px;
+}
+
+.buttonContainer .buttonText {
+  cursor: pointer;
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid #555555;
+  background-color: #a7b8b3;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 10px;
+}
+.buttonContainer .buttonText:hover {
+  cursor: pointer;
+  background-color: pink;
+}
+
+.menuHeaderContainer {
+  width: 100%;
+}
+.menuHeaderContainer .menuHeaderContainerClose {
+  margin: 8px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+.menuHeaderContainer .menuHeaderContainerClose .closePopUp {
+  margin-right: 20px;
+  text-align: right;
+  cursor: pointer;
+}
+.menuHeaderContainer .menuHeaderTitleContainer {
+  margin: 20px;
+}
+.menuHeaderContainer .menuHeaderTitleContainer .menuHeaderTitle {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.durationInputContainer {
+  margin: 10px;
+}
+.durationInputContainer .durationInputLabel {
+  cursor: default;
+}
+.durationInputContainer .durationInputField {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.durationInputContainer .durationInputField .durationInput {
+  width: 60px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid #555555;
+  background-color: #a7b8b3;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: text;
+  padding-left: 20px;
+}
+.durationInputContainer .durationInputField .durationInputHoursDescription {
+  margin-left: 4px;
+  margin-right: 12px;
+}
+
+.colorPickerContainer {
+  width: 100px;
+  margin-left: 12px;
+}
+.colorPickerContainer .colorPicker {
+  display: flex;
+  flex-direction: row;
+}
+.colorPickerContainer .colorPicker .colorSelected {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+.colorPickerContainer .colorPicker .colorSelect {
+  margin-left: 4px;
+}
+.colorPickerContainer .colorPicker .colorSelect .colorSelectDropdown {
+  position: absolute;
+  width: 50px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.colorPickerContainer .colorPicker .colorSelect .colorSelectDropdown .dropdown {
+  cursor: pointer;
+  position: absolute;
+  width: 50px;
+  top: 3px;
+  background-color: #a7b8b3;
+  left: 15px;
+}
+.colorPickerContainer .colorPicker .colorSelect .colorSelectDropdown .dropdown .dropdown-option {
+  margin: 2px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+.colorPickerContainer .colorPicker .colorSelect .colorSelectDropdown .dropdown .dropdown-option:hover {
+  border: 1px solid white;
+  box-sizing: border-box;
 }
 
 body {

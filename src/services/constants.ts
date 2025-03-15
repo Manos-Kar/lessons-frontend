@@ -74,3 +74,16 @@ export const TIMES = [
   "21:00",
   "22:00",
 ];
+
+export const COLORPALLETE = [
+  "#6C5B7B", // Muted Purple
+  "#355C7D", // Deep Slate Blue
+  "#99B898", // Soft Sage Green
+  "#F67280", // Warm Coral
+  "#45ADA8", // Cool Teal
+  "#547AA5", // Dusty Blue
+  "#FF847C", // Soft Red-Orange
+  "#5D5C61", // Charcoal Gray
+  "#A1C3D1", // Soft Steel Blue
+  "#779CAB", // Muted Aqua
+];

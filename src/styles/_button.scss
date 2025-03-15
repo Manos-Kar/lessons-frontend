@@ -1,0 +1,21 @@
+.buttonContainer {
+  .buttonText {
+    cursor: pointer;
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #555555;
+    background-color: $bg_color2;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 10px;
+    &:hover {
+      cursor: pointer;
+      background-color: pink;
+    }
+  }
+}

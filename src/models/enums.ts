@@ -1,3 +1,4 @@
+import { COLORPALLETE as COLOR_PALLETE } from "../services/constants";
 import { TimeBlock } from "./timeBlock";
 
 export type DaysOfWeek = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun";
@@ -21,10 +22,24 @@ export function defaultAvailableSchedule(): AvailableSchedule {
 export type LessonInfo = {
   lesson: string;
   timeBlocks: TimeBlock[];
-  weeklyDuration: number;
+  weeklyDuration: TimeString;
   pricePerHour: number;
   lessonColor: string;
 };
+
+export function defaultLessonInfo(): LessonInfo {
+  return {
+    lesson: "",
+    timeBlocks: [],
+    weeklyDuration: "00:00",
+    pricePerHour: 0,
+    lessonColor: randomPaletteColor(),
+  };
+}
+
+export function randomPaletteColor(): string {
+  return COLOR_PALLETE[Math.floor(Math.random() * COLOR_PALLETE.length)];
+}
 
 export type LessonBlock = {
   studentId: string;
