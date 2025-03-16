@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./styles/app.css";
-import { TeacherInfo } from "./models/teacherInfo";
 import Login from "./pages/Login";
 import MainPage from "./pages/MainPage";
 import { fetchCsrfToken, get_teacher_info } from "./services/requests";
 import Cookies from "js-cookie";
+import { useRecoilState } from "recoil";
+import { teacherInfoState } from "./states/TeacherInfo";
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [teacherInfo, setTeacherInfo] = useState<TeacherInfo | undefined>(
-    undefined
-  );
+  const [teacherInfo, setTeacherInfo] = useRecoilState(teacherInfoState);
 
   useEffect(() => {
     fetchCsrfToken().then((res: any) => {
@@ -31,7 +30,7 @@ function App() {
       if (credentials !== undefined) {
         setLoggedIn(true);
         console.log("Logged in");
-        if (teacherInfo !== undefined) {
+        if (teacherInfo.name !== "") {
           setLoading(false);
           return;
         }
@@ -62,8 +61,8 @@ function App() {
     <div className="appPage">
       {loading ? (
         <p className="loading">Loading...</p>
-      ) : loggedIn && teacherInfo ? (
-        <MainPage teacherInfo={teacherInfo} />
+      ) : loggedIn && teacherInfo.name !== "" ? (
+        <MainPage />
       ) : (
         <Login setLoggedIn={setLoggedIn} setLoading={setLoading} />
       )}

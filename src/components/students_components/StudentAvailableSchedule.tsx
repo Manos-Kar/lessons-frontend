@@ -23,7 +23,7 @@ export default function StudentAvailableSchedule(props: Props) {
   function addDay(day: DaysOfWeek) {
     let tempSchedule = ["14:00", "21:00"];
     let tempStudentInfo = deepCloneObject(props.studentInfo);
-    tempStudentInfo.available_schedule[day].push(tempSchedule);
+    tempStudentInfo.availableSchedule[day].push(tempSchedule);
     props.setStudentInfo(tempStudentInfo);
   }
 
@@ -32,7 +32,7 @@ export default function StudentAvailableSchedule(props: Props) {
     let splitSchedule1: [string, string] = ["", ""];
     let splitSchedule2: [string, string] = ["", ""];
 
-    let schedule = tempStudentInfo.available_schedule[day][0];
+    let schedule = tempStudentInfo.availableSchedule[day][0];
 
     let startTime = getStartTime(schedule);
     let endTime = getEndTime(schedule);
@@ -52,10 +52,10 @@ export default function StudentAvailableSchedule(props: Props) {
         timeToString(endTime),
       ];
 
-      tempStudentInfo.available_schedule[day].splice(0, 1);
-      tempStudentInfo.available_schedule[day].push(splitSchedule1);
-      tempStudentInfo.available_schedule[day].push(splitSchedule2);
-      tempStudentInfo.available_schedule[day].sort(
+      tempStudentInfo.availableSchedule[day].splice(0, 1);
+      tempStudentInfo.availableSchedule[day].push(splitSchedule1);
+      tempStudentInfo.availableSchedule[day].push(splitSchedule2);
+      tempStudentInfo.availableSchedule[day].sort(
         (a: [string, string], b: [string, string]) => {
           const timeToMinutes = (time: string) => {
             const [hours, minutes] = time.split(":").map(Number);
@@ -72,14 +72,14 @@ export default function StudentAvailableSchedule(props: Props) {
 
   function removeDay(day: DaysOfWeek) {
     let tempStudentInfo = deepCloneObject(props.studentInfo);
-    tempStudentInfo.available_schedule[day] = [];
+    tempStudentInfo.availableSchedule[day] = [];
 
     props.setStudentInfo(tempStudentInfo);
   }
 
   function changeAvailableSchedule(availableSchedule: AvailableSchedule): void {
     let tempStudentInfo = deepCloneObject(props.studentInfo);
-    tempStudentInfo.available_schedule = availableSchedule;
+    tempStudentInfo.availableSchedule = availableSchedule;
 
     props.setStudentInfo(tempStudentInfo);
   }
@@ -91,7 +91,7 @@ export default function StudentAvailableSchedule(props: Props) {
         id="studentMenuAvailableScheduleThumbnail"
       >
         <AvailableScheduleThumbnail
-          available_schedule={props.studentInfo.available_schedule}
+          availableSchedule={props.studentInfo.availableSchedule}
           onClick={() => setCalendarOn(true)}
         />
         {calendarOn && (
@@ -125,7 +125,7 @@ export default function StudentAvailableSchedule(props: Props) {
                   id={`addRemoveDayAvailability-${day}`}
                   key={day}
                 >
-                  {props.studentInfo.available_schedule[day].length > 0 ? (
+                  {props.studentInfo.availableSchedule[day].length > 0 ? (
                     <>
                       <div
                         className="removeDayButton"
@@ -149,7 +149,7 @@ export default function StudentAvailableSchedule(props: Props) {
               ))}
             </div>
             <CalendarComp
-              availableSchedule={props.studentInfo.available_schedule}
+              availableSchedule={props.studentInfo.availableSchedule}
               changeAvailableSchedule={changeAvailableSchedule}
               student
             />

@@ -1,3 +1,4 @@
+import { generateUUID } from "../services/commonFunctions";
 import { AvailableSchedule, defaultAvailableSchedule } from "./enums";
 import { Lesson } from "./lesson";
 
@@ -6,24 +7,24 @@ export class StudentInfo {
   name: string;
   address: string;
   lessons: Lesson[];
-  available_schedule: AvailableSchedule;
+  availableSchedule: AvailableSchedule;
   constructor(
     studentId: string,
     name: string,
     address: string,
     lessons: Lesson[],
-    available_schedule: AvailableSchedule
+    availableSchedule: AvailableSchedule
   ) {
     this.studentId = studentId;
     this.name = name;
     this.address = address;
     this.lessons = lessons;
-    this.available_schedule = available_schedule;
+    this.availableSchedule = availableSchedule;
   }
 
   static emptyStudentInfo() {
     return new StudentInfo(
-      "new_student",
+      generateUUID(),
       "",
       "",
       [],

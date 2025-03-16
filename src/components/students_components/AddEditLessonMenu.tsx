@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { defaultLessonInfo, LessonInfo } from "../../models/enums";
+import { defaultLesson, LessonInfo } from "../../models/enums";
 import { Lesson } from "../../models/lesson";
 import { StudentInfo } from "../../models/studentInfo";
 import InputText from "../main_components/reusable/InputText";
@@ -8,6 +8,7 @@ import Button from "../main_components/reusable/Button";
 import DurationInput from "../main_components/reusable/DurationInput";
 import InputNumber from "../main_components/reusable/InputNumber";
 import { ColorPicker } from "../main_components/reusable/ColorPicker";
+import { deepCloneObject } from "../../services/commonFunctions";
 
 type Props = {
   studentInfo: StudentInfo;
@@ -17,33 +18,32 @@ type Props = {
   lesson?: Lesson;
 };
 export default function AddEditLessonMenu(props: Props) {
-  const [lessonInfo, setLessonInfo] = useState(
-    props.lesson ? props.lesson.lesson_info : defaultLessonInfo()
+  const [lesson, setLesson] = useState(
+    props.lesson ? props.lesson : defaultLesson()
   );
 
   function changeLessonInfo(key: keyof LessonInfo, value: string) {
-    console.log(key, value);
+    let tempLesson = deepCloneObject(lesson);
+    tempLesson.lesson_info[key] = value;
 
-    setLessonInfo({ ...lessonInfo, [key]: value });
+    setLesson(tempLesson);
   }
 
   function saveLesson() {
     console.log("save");
 
+    let tempStudentInfo = deepCloneObject(props.studentInfo);
     if (props.type !== "add") {
       let lessonIndex = props.studentInfo.lessons.findIndex(
         (lesson) => lesson.lessonId === props.lesson?.lessonId
       );
       if (lessonIndex === -1) return;
-      props.studentInfo.lessons[lessonIndex].lesson_info = lessonInfo;
+      tempStudentInfo.lessons[lessonIndex].lesson_info = lesson.lesson_info;
     } else {
-      props.studentInfo.lessons.push({
-        lessonId: Date.now().toString(),
-        lesson_info: lessonInfo,
-      });
+      tempStudentInfo.lessons.push(lesson);
     }
 
-    props.setStudentInfo(props.studentInfo);
+    props.setStudentInfo(tempStudentInfo);
     props.setAddLessonMenuOn(undefined);
     console.log("what??");
   }
@@ -64,27 +64,27 @@ export default function AddEditLessonMenu(props: Props) {
             <InputText
               id={"lessonName"}
               label={"Lesson name"}
-              value={lessonInfo.lesson}
+              value={lesson.lesson_info.lesson}
               property={"lesson"}
               onChange={changeLessonInfo}
             />
             <DurationInput
               id={"weeklyDuration"}
               label={"Weekly duration"}
-              value={lessonInfo.weeklyDuration}
+              value={lesson.lesson_info.weeklyDuration}
               property={"weeklyDuration"}
               onChange={changeLessonInfo}
             />
             <InputNumber
               id={"pricePerHour"}
               label={"Price per hour"}
-              value={lessonInfo.pricePerHour}
+              value={lesson.lesson_info.pricePerHour}
               property={"pricePerHour"}
               onChange={changeLessonInfo}
               suffix="€/h"
             />
             <ColorPicker
-              color={lessonInfo.lessonColor}
+              color={lesson.lesson_info.lessonColor}
               label={"Lesson color"}
               setColor={(color) => changeLessonInfo("lessonColor", color)}
             />

@@ -4,14 +4,14 @@ import { StudentInfo } from "./studentInfo";
 export class TeacherInfo {
   name: string;
   students: StudentInfo[];
-  available_schedule: AvailableSchedule;
+  availableSchedule: AvailableSchedule;
   constructor(
     name: string,
     students: StudentInfo[],
-    available_schedule: AvailableSchedule
+    availableSchedule: AvailableSchedule
   ) {
     this.name = name;
     this.students = students;
-    this.available_schedule = available_schedule;
+    this.availableSchedule = availableSchedule;
   }
 }

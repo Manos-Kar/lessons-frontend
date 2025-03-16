@@ -7,6 +7,6 @@ export const teacherInfoState = atom<TeacherInfo>({
   default: {
     name: "",
     students: [],
-    available_schedule: defaultAvailableSchedule(),
+    availableSchedule: defaultAvailableSchedule(),
   },
 });

@@ -1,28 +1,31 @@
 import { useEffect, useState } from "react";
 import { StudentInfo } from "../../models/studentInfo";
 import { teacherInfoState } from "../../states/TeacherInfo";
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import StudentAvailableSchedule from "./StudentAvailableSchedule";
 import StudentLessons from "./StudentLessons";
 import InputText from "../main_components/reusable/InputText";
 import MenuHeader from "../main_components/reusable/MenuHeader";
 import Button from "../main_components/reusable/Button";
+import { edit_student_info, save_student_info } from "../../services/requests";
+import { deepCloneObject } from "../../services/commonFunctions";
+import { TeacherInfo } from "../../models/teacherInfo";
 
 type Props = {
-  setStudentMenuOn: (value: boolean) => void;
-  type: "edit" | "add";
+  setStudentMenuOn: (studentMenuOn: "add" | string | undefined) => void;
+  type: string | "add" | undefined;
   studentId?: string;
 };
 export default function StudentMenu(props: Props) {
   const [studentInfo, setStudentInfo] = useState<StudentInfo>(
     StudentInfo.emptyStudentInfo()
   );
-  const teacherInfo = useRecoilValue(teacherInfoState);
+  const [teacherInfo, setTeacherInfo] = useRecoilState(teacherInfoState);
 
   useEffect(() => {
-    if (props.type === "edit") {
+    if (props.type !== "add") {
       for (let student of teacherInfo.students) {
-        if (student.studentId === props.studentId) {
+        if (student.studentId === props.type) {
           setStudentInfo(student);
         }
       }
@@ -36,14 +39,51 @@ export default function StudentMenu(props: Props) {
     }
   }
 
+  function saveStudentInfo() {
+    if (props.type === "add") {
+      save_student_info(studentInfo).then((response: any) => {
+        if (response.status === 200) {
+          console.log(response);
+          let tempTeacherInfo = deepCloneObject(teacherInfo) as TeacherInfo;
+
+          tempTeacherInfo.students.push(studentInfo);
+
+          setTeacherInfo(tempTeacherInfo);
+          props.setStudentMenuOn(undefined);
+        } else {
+          console.log(response);
+          window.alert("Error saving student info");
+        }
+      });
+    } else {
+      edit_student_info(studentInfo).then((response: any) => {
+        if (response.status === 200) {
+          console.log(response);
+          let tempTeacherInfo = deepCloneObject(teacherInfo) as TeacherInfo;
+          let studentIndex = teacherInfo.students.findIndex(
+            (student) => student.studentId === studentInfo.studentId
+          );
+
+          tempTeacherInfo.students[studentIndex] = studentInfo;
+
+          setTeacherInfo(tempTeacherInfo);
+          props.setStudentMenuOn(undefined);
+        } else {
+          console.log(response);
+          window.alert("Error saving student info");
+        }
+      });
+    }
+  }
+
   return (
     <>
       <div className="studentMenuContainer" id={"studentMenuContainer"}>
         <div className="studentMenuTop">
           <MenuHeader
             id={"studentMenu"}
-            menuHeader={props.type === "edit" ? "Edit Student" : "Add Student"}
-            onClickX={() => props.setStudentMenuOn(false)}
+            menuHeader={props.type !== "add" ? "Edit Student" : "Add Student"}
+            onClickX={() => props.setStudentMenuOn(undefined)}
           />
 
           <div className="studentMenuInputs" id={"studentMenuInputs"}>
@@ -91,7 +131,7 @@ export default function StudentMenu(props: Props) {
             <Button
               id={"saveStudent"}
               text={"Save Student"}
-              onClick={() => {}}
+              onClick={saveStudentInfo}
             />
           </div>
         </div>

@@ -41,14 +41,14 @@ export function calculateTopPosition(
   };
 }
 
-export function getStartTime(available_schedule: [string, string]) {
+export function getStartTime(availableSchedule: [string, string]) {
   // 12:00 becomes 13:00, why?
 
-  return new Date(`2025-01-01T${available_schedule[0]}`);
+  return new Date(`2025-01-01T${availableSchedule[0]}`);
 }
 
-export function getEndTime(available_schedule: [string, string]) {
-  return new Date(`2025-01-01T${available_schedule[1]}`);
+export function getEndTime(availableSchedule: [string, string]) {
+  return new Date(`2025-01-01T${availableSchedule[1]}`);
 }
 
 export function timeToString(time: Date) {
@@ -79,4 +79,12 @@ export function formatTime(hour: number, minute: number): TimeString {
     2,
     "0"
   )}` as TimeString;
+}
+
+export function generateUUID() {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0,
+      v = c === "x" ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
 }

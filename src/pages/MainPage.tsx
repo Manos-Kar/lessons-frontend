@@ -4,11 +4,13 @@ import GoogleAddress from "../components/GoogleAddress";
 import { TeacherInfo } from "../models/teacherInfo";
 import { useEffect, useState } from "react";
 import { calculateTravelTime } from "../services/requests";
+import { useRecoilValue } from "recoil";
+import { teacherInfoState } from "../states/TeacherInfo";
 
-type Props = {
-  teacherInfo: TeacherInfo;
-};
+type Props = {};
 export default function MainPage(props: Props) {
+  const teacherInfo = useRecoilValue(teacherInfoState);
+
   // const [selectedAddress1, setSelectedAddress1] = useState<
   //   google.maps.places.PlaceResult | ""
   // >("");
@@ -52,13 +54,11 @@ export default function MainPage(props: Props) {
   return (
     <>
       <div className="leftSide">
-        <div className="greetingContainer">
-          {"Hi, " + props.teacherInfo.name}
-        </div>
+        <div className="greetingContainer">{"Hi, " + teacherInfo.name}</div>
         {/* <MainCalendar teacherInfo={props.teacherInfo} /> */}
       </div>
       <div className="rightSide">
-        <Students teacherInfo={props.teacherInfo} />
+        <Students />
 
         {/* <div>Time to travel and distance:</div>
         {travelDistance && travelDistance.time && (

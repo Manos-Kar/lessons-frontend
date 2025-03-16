@@ -2,11 +2,11 @@ import { AvailableSchedule } from "../models/enums";
 import { WEEKDAYS } from "../services/constants";
 
 type Props = {
-  available_schedule: AvailableSchedule;
+  availableSchedule: AvailableSchedule;
   onClick: () => void;
 };
 export default function AvailableScheduleThumbnail(props: Props) {
-  // console.log(props.available_schedule);
+  // console.log(props.availableSchedule);
 
   return (
     <>
@@ -24,7 +24,7 @@ export default function AvailableScheduleThumbnail(props: Props) {
                 key={day}
               >
                 {day.substring(0, 1).toUpperCase()}
-                {props.available_schedule[day].map(
+                {props.availableSchedule[day].map(
                   (availableSlot, availableSlotIndex) => (
                     <div
                       className="studentMenuWeekdayAvailableBlock"

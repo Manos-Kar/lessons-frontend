@@ -1,4 +1,6 @@
+import { generateUUID } from "../services/commonFunctions";
 import { COLORPALLETE as COLOR_PALLETE } from "../services/constants";
+import { Lesson } from "./lesson";
 import { TimeBlock } from "./timeBlock";
 
 export type DaysOfWeek = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun";
@@ -27,13 +29,16 @@ export type LessonInfo = {
   lessonColor: string;
 };
 
-export function defaultLessonInfo(): LessonInfo {
+export function defaultLesson(): Lesson {
   return {
-    lesson: "",
-    timeBlocks: [],
-    weeklyDuration: "00:00",
-    pricePerHour: 0,
-    lessonColor: randomPaletteColor(),
+    lessonId: generateUUID(),
+    lesson_info: {
+      lesson: "",
+      timeBlocks: [],
+      weeklyDuration: "00:00",
+      pricePerHour: 0,
+      lessonColor: randomPaletteColor(),
+    },
   };
 }
 
