@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { calculateTravelTime } from "../services/requests";
 import { useRecoilValue } from "recoil";
 import { teacherInfoState } from "../states/TeacherInfo";
+import Lessons from "../components/Lessons";
 
 type Props = {};
 export default function MainPage(props: Props) {
@@ -54,12 +55,12 @@ export default function MainPage(props: Props) {
   return (
     <>
       <div className="leftSide">
-        <div className="greetingContainer">{"Hi, " + teacherInfo.name}</div>
-        {/* <MainCalendar teacherInfo={props.teacherInfo} /> */}
+        <div className="greetingContainer">{"Hi, " + teacherInfo.callName}</div>
+        <MainCalendar />
       </div>
       <div className="rightSide">
         <Students />
-
+        <Lessons />
         {/* <div>Time to travel and distance:</div>
         {travelDistance && travelDistance.time && (
           <div>

@@ -46,12 +46,7 @@ export default function Students(props: Props) {
             Add student
           </div>
         </div>
-        {studentMenuOn === "add" ? (
-          <StudentMenu
-            setStudentMenuOn={setStudentMenuOn}
-            type={studentMenuOn}
-          />
-        ) : studentMenuOn !== undefined ? (
+        {studentMenuOn !== undefined ? (
           <StudentMenu
             setStudentMenuOn={setStudentMenuOn}
             type={studentMenuOn}

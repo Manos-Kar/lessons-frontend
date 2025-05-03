@@ -7,9 +7,14 @@ import StudentLessons from "./StudentLessons";
 import InputText from "../main_components/reusable/InputText";
 import MenuHeader from "../main_components/reusable/MenuHeader";
 import Button from "../main_components/reusable/Button";
-import { edit_student_info, save_student_info } from "../../services/requests";
+import {
+  delete_student_info,
+  edit_student_info,
+  save_student_info,
+} from "../../services/requests";
 import { deepCloneObject } from "../../services/commonFunctions";
 import { TeacherInfo } from "../../models/teacherInfo";
+import DeleteItemPopup from "../main_components/reusable/DeleteItemPopup";
 
 type Props = {
   setStudentMenuOn: (studentMenuOn: "add" | string | undefined) => void;
@@ -21,6 +26,7 @@ export default function StudentMenu(props: Props) {
     StudentInfo.emptyStudentInfo()
   );
   const [teacherInfo, setTeacherInfo] = useRecoilState(teacherInfoState);
+  const [deletePopupOn, setDeletePopupOn] = useState(false);
 
   useEffect(() => {
     if (props.type !== "add") {
@@ -76,6 +82,26 @@ export default function StudentMenu(props: Props) {
     }
   }
 
+  function deleteStudent() {
+    delete_student_info(studentInfo.studentId).then((response: any) => {
+      if (response.status === 200) {
+        console.log(response);
+        let tempTeacherInfo = deepCloneObject(teacherInfo) as TeacherInfo;
+        let studentIndex = teacherInfo.students.findIndex(
+          (student) => student.studentId === studentInfo.studentId
+        );
+
+        tempTeacherInfo.students.splice(studentIndex, 1);
+
+        setTeacherInfo(tempTeacherInfo);
+        props.setStudentMenuOn(undefined);
+      } else {
+        console.log(response);
+        window.alert("Error deleting student info");
+      }
+    });
+  }
+
   return (
     <>
       <div className="studentMenuContainer" id={"studentMenuContainer"}>
@@ -83,8 +109,18 @@ export default function StudentMenu(props: Props) {
           <MenuHeader
             id={"studentMenu"}
             menuHeader={props.type !== "add" ? "Edit Student" : "Add Student"}
+            type={props.type}
+            onDelete={() => setDeletePopupOn(true)}
             onClickX={() => props.setStudentMenuOn(undefined)}
           />
+          {deletePopupOn && (
+            <DeleteItemPopup
+              onClose={() => setDeletePopupOn(false)}
+              onDelete={deleteStudent}
+              itemForDeletion={studentInfo.name}
+              type={"student"}
+            />
+          )}
 
           <div className="studentMenuInputs" id={"studentMenuInputs"}>
             <div className="studentInfo" id={"studentInfo"}>

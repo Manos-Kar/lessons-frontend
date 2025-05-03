@@ -1,0 +1,26 @@
+.lessonsComponent {
+  background-color: $bg_color3;
+  width: 600px;
+  border-radius: 20px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  position: relative;
+  padding: 10px;
+  .lessonsTitleContainer {
+    .lessonsTitle {
+      margin: 0px;
+    }
+  }
+  .lessonsPoolContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background-color: rgb(182, 182, 182);
+    border-radius: 10px;
+    height: 400px;
+    overflow-y: scroll;
+  }
+}

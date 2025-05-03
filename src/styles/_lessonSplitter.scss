@@ -1,0 +1,66 @@
+.lessonSplitterContainer {
+  min-width: 300px;
+  .lessonSplitterComponent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    .lessonBlocksContainer {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      flex: 1;
+    }
+
+    .lessonBlocksNumberContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+
+      .lessonBlocksNumberTitle {
+        font-size: 1rem;
+
+        margin: 0;
+      }
+
+      .lessonBlocksNumberInput {
+        @include inputCss;
+        padding-left: 20px;
+      }
+    }
+
+    .blockTimeInputContainer {
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 150px;
+      border: 1px solid #555555;
+      border-radius: 6px;
+      .blockTimeInputTitle {
+        padding: 4px;
+      }
+      .blockTimeInputInnerContainer {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        height: 33px;
+        padding: 4px;
+      }
+
+      .blockTimeInputComponent {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.5rem;
+
+        .blockTimeInput {
+          @include inputCss;
+          width: 35px;
+        }
+      }
+    }
+  }
+}

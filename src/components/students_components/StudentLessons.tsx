@@ -2,6 +2,8 @@ import { useState } from "react";
 import { StudentInfo } from "../../models/studentInfo";
 import AddEditLessonMenu from "./AddEditLessonMenu";
 import Button from "../main_components/reusable/Button";
+import LessonBlock from "../main_components/reusable/LessonBlock";
+import { deepCloneObject } from "../../services/commonFunctions";
 
 type Props = {
   studentInfo: StudentInfo;
@@ -11,6 +13,14 @@ export default function StudentLessons(props: Props) {
   const [addLessonMenuOn, setAddLessonMenuOn] = useState<
     undefined | string | "add"
   >(undefined);
+
+  function deleteLesson(lessonId: string) {
+    let tempStudentInfo = deepCloneObject(props.studentInfo) as StudentInfo;
+    tempStudentInfo.lessons = tempStudentInfo.lessons.filter(
+      (lesson) => lesson.lessonId !== lessonId
+    );
+    props.setStudentInfo(tempStudentInfo);
+  }
 
   return (
     <>
@@ -33,44 +43,19 @@ export default function StudentLessons(props: Props) {
             <div className="studentMenuLessonsList" id="studentMenuLessonsList">
               {props.studentInfo.lessons.map((lesson, lessonIndex) => {
                 return (
-                  <div
-                    className="studentMenuLesson"
-                    key={`studentMenuLesson-${lessonIndex}`}
-                    style={{ backgroundColor: lesson.lesson_info.lessonColor }}
-                    onClick={() => setAddLessonMenuOn(lesson.lessonId)}
-                  >
-                    <div
-                      className="studentMenuLessonName"
-                      id={`studentMenuLessonName-${lessonIndex}`}
-                    >
-                      {lesson.lesson_info.lesson}
-                    </div>
-                    <div
-                      className="studentMenuLessonTime"
-                      id={`studentMenuLessonTime-${lessonIndex}`}
-                    >
-                      {lesson.lesson_info.weeklyDuration} hrs/week
-                    </div>
-                    <div
-                      className="studentMenuLessonPrice"
-                      id={`studentMenuLessonPrice-${lessonIndex}`}
-                    >
-                      {lesson.lesson_info.pricePerHour} €/h
-                    </div>
-                  </div>
+                  <LessonBlock
+                    key={`lessonBlock-${lessonIndex}`}
+                    lesson={lesson}
+                    lessonIndex={lessonIndex}
+                    setAddLessonMenuOn={setAddLessonMenuOn}
+                    deleteLesson={deleteLesson}
+                  />
                 );
               })}
             </div>
           </div>
         )}
-        {addLessonMenuOn === "add" ? (
-          <AddEditLessonMenu
-            studentInfo={props.studentInfo}
-            setStudentInfo={props.setStudentInfo}
-            type={addLessonMenuOn}
-            setAddLessonMenuOn={setAddLessonMenuOn}
-          />
-        ) : addLessonMenuOn !== undefined ? (
+        {addLessonMenuOn !== undefined ? (
           <AddEditLessonMenu
             studentInfo={props.studentInfo}
             setStudentInfo={props.setStudentInfo}

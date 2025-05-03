@@ -6,6 +6,7 @@ import { fetchCsrfToken, get_teacher_info } from "./services/requests";
 import Cookies from "js-cookie";
 import { useRecoilState } from "recoil";
 import { teacherInfoState } from "./states/TeacherInfo";
+import { TeacherInfo } from "./models/teacherInfo";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -44,7 +45,7 @@ function App() {
           } else {
             console.log(res.data);
 
-            setTeacherInfo(res.data);
+            setTeacherInfo(TeacherInfo.FromJson(res.data));
             setLoading(false);
           }
         });

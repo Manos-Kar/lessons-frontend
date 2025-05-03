@@ -11,6 +11,7 @@ type Props = {
   calendarEndTime: TimeString;
   limitStartTime: TimeString;
   limitEndTime: TimeString;
+  editMode: boolean;
   onTimeChange: (newAvailableSlot: [TimeString, TimeString]) => void;
 };
 
@@ -49,6 +50,7 @@ export default function ScheduleBlock(props: Props) {
     e: React.MouseEvent,
     action: "drag" | "resizeTop" | "resizeBottom"
   ) => {
+    if (!props.editMode) return;
     e.preventDefault();
     e.stopPropagation();
 
@@ -110,11 +112,6 @@ export default function ScheduleBlock(props: Props) {
       let newEndHour = Math.floor(totalNewEndMinutes / 60);
       let newEndMinute = totalNewEndMinutes % 60;
 
-      console.log(newEndHour);
-      console.log(newEndMinute);
-      console.log(parsedLimitEndTime.hour);
-      console.log(parsedLimitEndTime.minute);
-
       if (
         newEndHour >= parsedLimitEndTime.hour &&
         (parsedLimitEndTime.minute === 0
@@ -126,10 +123,6 @@ export default function ScheduleBlock(props: Props) {
         newStartHour = newEndHour - Math.floor(durationInMinutes / 60);
         newStartMinute = Math.abs(newEndMinute - (durationInMinutes % 60));
       }
-
-      console.log(
-        `newStartHour: ${newStartHour}, newStartMinute: ${newStartMinute}, newEndHour: ${newEndHour}, newEndMinute: ${newEndMinute}`
-      );
 
       // Update times
       props.onTimeChange([
@@ -233,9 +226,13 @@ export default function ScheduleBlock(props: Props) {
   return (
     <div
       ref={blockRef}
-      className={`scheduleBlockContainer cursor-grab ${
-        isDragging ? "cursor-grabbing" : ""
-      } ${isResizingTop || isResizingBottom ? "cursor-ns-resize" : ""}`}
+      className={`scheduleBlockContainer ${
+        props.editMode ? "cursor-grab" : ""
+      } ${isDragging && props.editMode ? "cursor-grabbing" : ""} ${
+        (isResizingTop || isResizingBottom) && props.editMode
+          ? "cursor-ns-resize"
+          : ""
+      }`}
       style={{
         top: `${topPosition}px`,
         height: `${blockHeight}px`,
@@ -244,7 +241,9 @@ export default function ScheduleBlock(props: Props) {
     >
       {/* Resize handle - top */}
       <div
-        className="scheduleBlockHandle top cursor-ns-resize"
+        className={`scheduleBlockHandle top ${
+          props.editMode ? "cursor-ns-resize" : ""
+        }`}
         onMouseDown={(e) => handleMouseDown(e, "resizeTop")}
       />
 
@@ -253,7 +252,9 @@ export default function ScheduleBlock(props: Props) {
 
       {/* Resize handle - bottom */}
       <div
-        className="scheduleBlockHandle bottom cursor-ns-resize"
+        className={`scheduleBlockHandle bottom ${
+          props.editMode ? "cursor-ns-resize" : ""
+        }`}
         onMouseDown={(e) => handleMouseDown(e, "resizeBottom")}
       />
     </div>

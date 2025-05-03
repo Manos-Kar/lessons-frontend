@@ -23,7 +23,8 @@ export function defaultAvailableSchedule(): AvailableSchedule {
 
 export type LessonInfo = {
   lesson: string;
-  timeBlocks: TimeBlock[];
+  timeBlocks: TimeString[];
+  lessonScheduledTimes: TimeBlock[] | undefined;
   weeklyDuration: TimeString;
   pricePerHour: number;
   lessonColor: string;
@@ -34,8 +35,9 @@ export function defaultLesson(): Lesson {
     lessonId: generateUUID(),
     lesson_info: {
       lesson: "",
-      timeBlocks: [],
-      weeklyDuration: "00:00",
+      timeBlocks: ["01:30", "01:30"],
+      lessonScheduledTimes: undefined,
+      weeklyDuration: "03:00",
       pricePerHour: 0,
       lessonColor: randomPaletteColor(),
     },
@@ -51,7 +53,7 @@ export type LessonBlock = {
   studentName: string;
   lessonId: string;
   lessonName: string;
-  lessonTimeBlock: TimeBlock;
+  lessonScheduledTime: TimeBlock;
   lessonColor: string;
   locked: boolean;
 };

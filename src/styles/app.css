@@ -8,6 +8,10 @@
   flex-direction: column;
 }
 .calendarBackground .calendarTitleContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   margin: 10px;
 }
 .calendarBackground .calendarTitleContainer .calendarTitle {
@@ -87,10 +91,10 @@
   background-color: pink;
 }
 .studentsComponent .studentMenuContainer {
+  z-index: 1;
   position: fixed;
   background-color: #426f77;
   width: 1400px;
-  border-radius: 20px;
   margin: 30px;
   display: flex;
   flex-direction: column;
@@ -99,7 +103,11 @@
   height: 500px;
   top: 20%;
   left: calc(50% - 700px);
+  border-radius: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+.studentsComponent .studentMenuContainer .studentMenuTop {
+  position: relative;
 }
 .studentsComponent .studentMenuContainer .studentMenuTop .studentMenuInputs {
   margin-top: 10px;
@@ -144,35 +152,6 @@
 .studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .studentMenuCalendarTitle {
   font-size: 18px;
   text-align: left;
-}
-.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .addRemoveDayAvailabilityContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding-left: 20px;
-}
-.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .addRemoveDayAvailabilityContainer .addRemoveDayAvailability {
-  cursor: pointer;
-  font-size: 12px;
-  width: 121px;
-}
-.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .addRemoveDayAvailabilityContainer .addRemoveDayAvailability .addDayButton,
-.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .addRemoveDayAvailabilityContainer .addRemoveDayAvailability .removeDayButton,
-.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .addRemoveDayAvailabilityContainer .addRemoveDayAvailability .splitDayButton {
-  border-radius: 3px;
-  margin: 3px;
-  height: 20px;
-  text-align: center;
-  padding: 4px 0 0 0;
-  border: 1px solid #555555;
-  background-color: #a7b8b3;
-}
-.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .addRemoveDayAvailabilityContainer .addRemoveDayAvailability .addDayButton:hover,
-.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .addRemoveDayAvailabilityContainer .addRemoveDayAvailability .removeDayButton:hover,
-.studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuCalendarContainer .addRemoveDayAvailabilityContainer .addRemoveDayAvailability .splitDayButton:hover {
-  background-color: pink;
 }
 .studentsComponent .studentMenuAvailableScheduleThumbnail .studentMenuWeekdaysContainer {
   width: 150px;
@@ -232,8 +211,8 @@
   flex-direction: row;
 }
 .studentsComponent .studentMenuLessons .studentMenuLessonsListContainer .studentMenuLessonsList {
-  width: 800px;
-  max-width: 800px;
+  min-width: 800px;
+  max-width: 1380px;
   height: 140px;
   background-color: #a7b8b3;
   border-radius: 10px;
@@ -242,32 +221,6 @@
   flex-direction: row;
   overflow-x: auto;
   overflow-y: hidden;
-}
-.studentsComponent .studentMenuLessons .studentMenuLessonsListContainer .studentMenuLessonsList .studentMenuLesson {
-  cursor: pointer;
-  min-width: 110px;
-  height: 80px;
-  border-radius: 16px;
-  border: 6px solid #426f77;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  transition: transform 0.3s ease;
-  margin: 20px;
-}
-.studentsComponent .studentMenuLessons .studentMenuLessonsListContainer .studentMenuLessonsList .studentMenuLesson .studentMenuLessonName {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin: 0;
-}
-.studentsComponent .studentMenuLessons .studentMenuLessonsListContainer .studentMenuLessonsList .studentMenuLesson .studentMenuLessonTime,
-.studentsComponent .studentMenuLessons .studentMenuLessonsListContainer .studentMenuLessonsList .studentMenuLesson .studentMenuLessonPrice {
-  font-size: 0.9rem;
-  margin: 4px 0;
 }
 .studentsComponent .studentMenuLessons .addLessonMenuContainer {
   position: absolute;
@@ -285,6 +238,10 @@
 .studentsComponent .studentMenuLessons .addLessonMenuContainer .addLessonMenuTop {
   width: 100%;
 }
+.studentsComponent .studentMenuLessons .addLessonMenuContainer .addLessonMenuTop .addLessonMenu {
+  display: flex;
+  flex-direction: row;
+}
 .studentsComponent .studentMenuLessons .addLessonMenuContainer .addLessonMenuBottom {
   width: 100%;
   display: flex;
@@ -295,12 +252,74 @@
   margin-right: 30px;
   margin-bottom: 10px;
 }
+
+.studentMenuLessonBlock {
+  cursor: pointer;
+  position: relative;
+  max-width: 190px;
+  min-width: 190px;
+  height: 100px;
+  border-radius: 16px;
+  border: 6px solid #426f77;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  transition: transform 0.3s ease;
+  margin: 14px;
+}
+.studentMenuLessonBlock .lessonBin {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 15px;
+  cursor: pointer;
+}
+.studentMenuLessonBlock .lessonBin:hover {
+  width: 15.5px;
+}
+.studentMenuLessonBlock .studentMenuLessonBlockName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.studentMenuLessonBlock .studentMenuLessonBlockTime,
+.studentMenuLessonBlock .studentMenuLessonBlockPrice {
+  font-size: 0.9rem;
+  margin: 4px 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.studentMenuLessonBlock .studentMenuLessonBlockTimeBlockContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.studentMenuLessonBlock .studentMenuLessonBlockTimeBlockContainer .studentMenuLessonBlockTimeBlock {
+  border: 1px solid white;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  width: 40px;
+  margin: 2px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
 .scheduleBlockContainer {
   position: absolute;
   left: 0;
   right: 0;
-  background: green;
-  background-opacity: 0.8;
+  background-color: gray;
+  opacity: 0.4;
   border-radius: 0.375rem;
   border: 2px solid #a7b8b3;
   color: white;
@@ -310,11 +329,13 @@
   overflow: hidden;
   transition: background-color 150ms;
 }
-.scheduleBlockContainer:hover {
-  background: lightgreen;
-}
 .scheduleBlockContainer.cursor-grab {
+  background: green;
+  opacity: 0.8;
   cursor: grab;
+}
+.scheduleBlockContainer.cursor-grab:hover {
+  background: lightgreen;
 }
 .scheduleBlockContainer.cursor-grabbing {
   cursor: grabbing;
@@ -328,6 +349,8 @@
   right: 0;
   height: 0.5rem;
   background: transparent;
+}
+.scheduleBlockContainer .scheduleBlockHandle.cursor-ns-resize {
   cursor: ns-resize;
 }
 .scheduleBlockContainer .scheduleBlockHandle.top {
@@ -437,11 +460,61 @@
   cursor: pointer;
 }
 .menuHeaderContainer .menuHeaderTitleContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
   margin: 20px;
 }
 .menuHeaderContainer .menuHeaderTitleContainer .menuHeaderTitle {
   font-size: 20px;
   font-weight: bold;
+}
+.menuHeaderContainer .menuHeaderTitleContainer .menuHeaderBin {
+  margin-left: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+.menuHeaderContainer .menuHeaderTitleContainer .menuHeaderBin:hover {
+  width: 21px;
+}
+
+.deleteItemContainer {
+  position: absolute;
+  top: 50px;
+  left: 200px;
+  display: flex;
+  cursor: default;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  width: 500px;
+  height: 200px;
+  background-color: #426f77;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+.deleteItemContainer.lesson-mini {
+  top: -5px;
+  left: -5px;
+  width: 200px;
+  height: 110px;
+}
+.deleteItemContainer .deleteItemQuestion.lesson-mini {
+  font-size: 14px;
+}
+.deleteItemContainer .deleteItemButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.deleteItemContainer .deleteItemButtonsContainer.lesson-mini {
+  zoom: 0.9;
+}
+.deleteItemContainer .deleteItemButtonsContainer.lesson-mini .buttonText {
+  width: 70px;
 }
 
 .durationInputContainer {
@@ -514,6 +587,111 @@
   box-sizing: border-box;
 }
 
+.lessonsComponent {
+  background-color: #426f77;
+  width: 600px;
+  border-radius: 20px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  position: relative;
+  padding: 10px;
+}
+.lessonsComponent .lessonsTitleContainer .lessonsTitle {
+  margin: 0px;
+}
+.lessonsComponent .lessonsPoolContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  background-color: rgb(182, 182, 182);
+  border-radius: 10px;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.lessonSplitterContainer {
+  min-width: 300px;
+}
+.lessonSplitterContainer .lessonSplitterComponent {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.lessonSplitterContainer .lessonSplitterComponent .lessonBlocksContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex: 1;
+}
+.lessonSplitterContainer .lessonSplitterComponent .lessonBlocksNumberContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.lessonSplitterContainer .lessonSplitterComponent .lessonBlocksNumberContainer .lessonBlocksNumberTitle {
+  font-size: 1rem;
+  margin: 0;
+}
+.lessonSplitterContainer .lessonSplitterComponent .lessonBlocksNumberContainer .lessonBlocksNumberInput {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid #555555;
+  background-color: #a7b8b3;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: text;
+  padding-left: 20px;
+}
+.lessonSplitterContainer .lessonSplitterComponent .blockTimeInputContainer {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 150px;
+  border: 1px solid #555555;
+  border-radius: 6px;
+}
+.lessonSplitterContainer .lessonSplitterComponent .blockTimeInputContainer .blockTimeInputTitle {
+  padding: 4px;
+}
+.lessonSplitterContainer .lessonSplitterComponent .blockTimeInputContainer .blockTimeInputInnerContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  height: 33px;
+  padding: 4px;
+}
+.lessonSplitterContainer .lessonSplitterComponent .blockTimeInputContainer .blockTimeInputComponent {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+.lessonSplitterContainer .lessonSplitterComponent .blockTimeInputContainer .blockTimeInputComponent .blockTimeInput {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid #555555;
+  background-color: #a7b8b3;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: text;
+  width: 35px;
+}
+
 body {
   margin: 0;
   font-family: "Arial";
@@ -527,6 +705,13 @@ body {
   body {
     padding: 3px;
   }
+}
+
+h1,
+p {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .loading {
@@ -758,7 +943,44 @@ body {
   padding: 10px;
 }
 
+.addRemoveDayAvailabilityContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-left: 20px;
+}
+.addRemoveDayAvailabilityContainer.student {
+  padding-left: 20px;
+}
+.addRemoveDayAvailabilityContainer .addRemoveDayAvailability {
+  cursor: pointer;
+  font-size: 12px;
+  width: 141px;
+}
+.addRemoveDayAvailabilityContainer .addRemoveDayAvailability.student {
+  width: 136px;
+}
+.addRemoveDayAvailabilityContainer .addRemoveDayAvailability .addDayButton,
+.addRemoveDayAvailabilityContainer .addRemoveDayAvailability .removeDayButton,
+.addRemoveDayAvailabilityContainer .addRemoveDayAvailability .splitDayButton {
+  border-radius: 3px;
+  margin: 3px;
+  height: 20px;
+  text-align: center;
+  padding: 4px 0 0 0;
+  border: 1px solid #555555;
+  background-color: #a7b8b3;
+}
+.addRemoveDayAvailabilityContainer .addRemoveDayAvailability .addDayButton:hover,
+.addRemoveDayAvailabilityContainer .addRemoveDayAvailability .removeDayButton:hover,
+.addRemoveDayAvailabilityContainer .addRemoveDayAvailability .splitDayButton:hover {
+  background-color: pink;
+}
+
 .weekdaysContainer {
+  zoom: 0.9;
   display: flex;
   flex-direction: row;
   background-color: pink;

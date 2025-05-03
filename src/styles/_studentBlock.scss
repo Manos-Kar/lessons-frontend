@@ -2,8 +2,8 @@
   position: absolute;
   left: 0;
   right: 0;
-  background: green;
-  background-opacity: 0.8;
+  background-color: gray;
+  opacity: 0.4;
   border-radius: 0.375rem;
   border: 2px solid $bg_color2;
   color: white;
@@ -13,11 +13,13 @@
   overflow: hidden;
   transition: background-color 150ms;
 
-  &:hover {
-    background: lightgreen;
-  }
-
   &.cursor-grab {
+    background: green;
+    opacity: 0.8;
+
+    &:hover {
+      background: lightgreen;
+    }
     cursor: grab;
   }
 
@@ -35,8 +37,9 @@
     right: 0;
     height: 0.5rem;
     background: transparent;
-    cursor: ns-resize;
-
+    &.cursor-ns-resize {
+      cursor: ns-resize;
+    }
     &.top {
       top: 0;
     }

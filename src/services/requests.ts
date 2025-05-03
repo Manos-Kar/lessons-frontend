@@ -1,9 +1,10 @@
 import Cookies from "js-cookie";
 import { getUrl } from "./constants";
-import { get, patch, post } from "./requestTemplates";
+import { deleteR, get, patch, post } from "./requestTemplates";
 import { StudentInfo } from "../models/studentInfo";
 import { Lesson } from "../models/lesson";
 import { AvailableSchedule } from "../models/enums";
+import { TeacherInfo } from "../models/teacherInfo";
 
 function getCredentialsFromCookie() {
   return Cookies.get("credentials");
@@ -25,11 +26,23 @@ function getHeaders() {
   return headers;
 }
 
-//GET @api_get_teacher_info
+//GET @api_teacher_info
 export const get_teacher_info = async () => {
   const headers = getHeaders();
   try {
-    return await get(getUrl("GET_TEACHER_INFO"), headers);
+    return await get(getUrl("TEACHER_INFO"), headers);
+  } catch (error) {
+    return error;
+  }
+};
+
+//GET @api_teacher_info
+export const edit_teacher_info = async (teacherInfo: TeacherInfo) => {
+  const headers = getHeaders();
+  try {
+    return await patch(getUrl("TEACHER_INFO"), headers, {
+      teacher_info: teacherInfo,
+    });
   } catch (error) {
     return error;
   }
@@ -53,6 +66,20 @@ export const edit_student_info = async (studentInfo: StudentInfo) => {
   try {
     return await patch(getUrl("STUDENT_INFO"), headers, {
       studentInfo: studentInfo,
+    });
+  } catch (error) {
+    return error;
+  }
+};
+
+//DELETE @api_student_info
+export const delete_student_info = async (
+  studentId: StudentInfo["studentId"]
+) => {
+  const headers = getHeaders();
+  try {
+    return await deleteR(getUrl("STUDENT_INFO"), headers, {
+      studentId: studentId,
     });
   } catch (error) {
     return error;

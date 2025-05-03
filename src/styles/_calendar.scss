@@ -9,6 +9,10 @@ $columnWidth: 150px;
   display: flex;
   flex-direction: column;
   .calendarTitleContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     margin: 10px;
     .calendarTitle {
       margin: 0px;

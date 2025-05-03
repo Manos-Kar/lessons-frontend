@@ -74,6 +74,12 @@ export function parseTime(timeString: string) {
   return { hour, minute };
 }
 
+export function getDurationInMinutes(duration: TimeString) {
+  const paresedDuration = parseTime(duration);
+  const durationInMinutes = paresedDuration.hour * 60 + paresedDuration.minute;
+  return durationInMinutes;
+}
+
 export function formatTime(hour: number, minute: number): TimeString {
   return `${String(hour).padStart(2, "0")}:${String(minute).padStart(
     2,

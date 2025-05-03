@@ -1,6 +1,6 @@
 import { DaysOfWeek } from "../models/enums";
 
-const GET_TEACHER_INFO = "lessons/api/get_teacher_info/";
+const TEACHER_INFO = "lessons/api/teacher_info/";
 const STUDENT_INFO = "lessons/api/student_info/";
 const LESSON = "lessons/api/lesson/";
 const SAVE_AVAILABLE_SCHEDULE = "lessons/api/save_available_schedule/";
@@ -9,7 +9,7 @@ const GET_CSRF_TOKEN = "lessons/api/get_csrf_token/";
 const CALCULATE_TRAVEL_TIME = "lessons/api/calculate_travel_time/";
 
 export type UrlOption =
-  | "GET_TEACHER_INFO"
+  | "TEACHER_INFO"
   | "GET_CSRF_TOKEN"
   | "LOGIN"
   | "STUDENT_INFO"
@@ -21,8 +21,8 @@ export const getUrl = (option: UrlOption, ids?: string[]) => {
   let resUrl = "";
 
   switch (option) {
-    case "GET_TEACHER_INFO":
-      resUrl += GET_TEACHER_INFO;
+    case "TEACHER_INFO":
+      resUrl += TEACHER_INFO;
       break;
     case "GET_CSRF_TOKEN":
       resUrl += GET_CSRF_TOKEN;
