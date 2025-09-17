@@ -9,6 +9,7 @@
 @import "./_colorPicker.scss";
 @import "./_lessons.scss";
 @import "./_lessonSplitter.scss";
+@import "./_draggingBlock.scss";
 
 body {
   margin: 0;
@@ -391,6 +392,15 @@ p {
         &.thirdQuarter,
         &.fourthQuarter {
           display: none;
+        }
+      }
+      &.highlighted {
+        background-color: blue;
+        &.first {
+          border-radius: 10px 10px 0 0;
+        }
+        &.last {
+          border-radius: 0 0 10px 10px;
         }
       }
     }

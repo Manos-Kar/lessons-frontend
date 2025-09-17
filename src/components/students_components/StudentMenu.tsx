@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { StudentInfo } from "../../models/studentInfo";
-import { teacherInfoState } from "../../states/TeacherInfo";
+import { teacherInfoState } from "../../states/TeacherInfoState";
 import { useRecoilState } from "recoil";
 import StudentAvailableSchedule from "./StudentAvailableSchedule";
 import StudentLessons from "./StudentLessons";

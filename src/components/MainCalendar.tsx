@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { AvailableSchedule, LessonBlock } from "../models/enums";
-import CalendarComp from "./main_components/CalendarComp";
+import CalendarComp from "./main_components/main_calendar/CalendarComp";
 import { useRecoilState } from "recoil";
-import { teacherInfoState } from "../states/TeacherInfo";
+import { teacherInfoState } from "../states/TeacherInfoState";
 import { deepCloneObject } from "../services/commonFunctions";
 import { edit_teacher_info } from "../services/requests";
 import Button from "./main_components/reusable/Button";

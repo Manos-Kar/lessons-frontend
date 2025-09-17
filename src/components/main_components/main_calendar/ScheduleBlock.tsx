@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { formatTime, parseTime } from "../../services/commonFunctions";
-import { TimeString } from "../../models/enums";
+import { formatTime, parseTime } from "../../../services/commonFunctions";
+import { DaysOfWeek, TimeString } from "../../../models/enums";
 
 type Props = {
   blockStartTime: TimeString;
@@ -12,6 +12,7 @@ type Props = {
   limitStartTime: TimeString;
   limitEndTime: TimeString;
   editMode: boolean;
+  day: DaysOfWeek;
   onTimeChange: (newAvailableSlot: [TimeString, TimeString]) => void;
 };
 
@@ -236,7 +237,9 @@ export default function ScheduleBlock(props: Props) {
       style={{
         top: `${topPosition}px`,
         height: `${blockHeight}px`,
+        pointerEvents: props.editMode ? "auto" : "none",
       }}
+      id={`scheduleBlockContainer-${props.day}-${props.blockStartTime}-${props.blockEndTime}`}
       onMouseDown={(e) => handleMouseDown(e, "drag")}
     >
       {/* Resize handle - top */}

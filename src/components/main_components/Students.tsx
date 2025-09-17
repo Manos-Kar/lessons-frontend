@@ -1,7 +1,7 @@
 import { useState } from "react";
 import StudentMenu from "../students_components/StudentMenu";
 import { useRecoilValue } from "recoil";
-import { teacherInfoState } from "../../states/TeacherInfo";
+import { teacherInfoState } from "../../states/TeacherInfoState";
 
 type Props = {};
 export default function Students(props: Props) {
@@ -9,7 +9,6 @@ export default function Students(props: Props) {
     "add" | string | undefined
   >(undefined);
   const teacherInfo = useRecoilValue(teacherInfoState);
-  console.log(teacherInfo);
 
   return (
     <>

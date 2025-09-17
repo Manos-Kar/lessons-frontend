@@ -5,12 +5,15 @@ import { TeacherInfo } from "../models/teacherInfo";
 import { useEffect, useState } from "react";
 import { calculateTravelTime } from "../services/requests";
 import { useRecoilValue } from "recoil";
-import { teacherInfoState } from "../states/TeacherInfo";
-import Lessons from "../components/Lessons";
+import { teacherInfoState } from "../states/TeacherInfoState";
+import LessonsPool from "../components/LessonsPool";
+import { draggingBlockState } from "../states/DraggingBlockState";
+import DraggingBlock from "../components/main_components/reusable/DraggingBlock";
 
 type Props = {};
 export default function MainPage(props: Props) {
   const teacherInfo = useRecoilValue(teacherInfoState);
+  const draggingBlock = useRecoilValue(draggingBlockState);
 
   // const [selectedAddress1, setSelectedAddress1] = useState<
   //   google.maps.places.PlaceResult | ""
@@ -54,13 +57,14 @@ export default function MainPage(props: Props) {
 
   return (
     <>
+      {draggingBlock.dragging && <DraggingBlock />}
       <div className="leftSide">
         <div className="greetingContainer">{"Hi, " + teacherInfo.callName}</div>
         <MainCalendar />
       </div>
       <div className="rightSide">
         <Students />
-        <Lessons />
+        <LessonsPool />
         {/* <div>Time to travel and distance:</div>
         {travelDistance && travelDistance.time && (
           <div>

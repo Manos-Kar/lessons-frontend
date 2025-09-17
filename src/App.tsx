@@ -5,7 +5,7 @@ import MainPage from "./pages/MainPage";
 import { fetchCsrfToken, get_teacher_info } from "./services/requests";
 import Cookies from "js-cookie";
 import { useRecoilState } from "recoil";
-import { teacherInfoState } from "./states/TeacherInfo";
+import { teacherInfoState } from "./states/TeacherInfoState";
 import { TeacherInfo } from "./models/teacherInfo";
 
 function App() {

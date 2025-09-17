@@ -59,3 +59,11 @@ export type LessonBlock = {
 };
 
 export type TimeString = `${number}:${number}`;
+
+export type DraggingBlock = {
+  lessonId: string;
+  lessonInfo: LessonInfo;
+  position: { x: number; y: number };
+  blockIndex: number;
+  dragging: boolean;
+};

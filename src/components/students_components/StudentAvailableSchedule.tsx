@@ -1,4 +1,4 @@
-import CalendarComp from "../main_components/CalendarComp";
+import CalendarComp from "../main_components/main_calendar/CalendarComp";
 import { StudentInfo } from "../../models/studentInfo";
 import AvailableScheduleThumbnail from "../AvailableScheduleThumbnail";
 import { useState } from "react";

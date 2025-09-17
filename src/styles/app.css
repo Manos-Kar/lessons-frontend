@@ -256,8 +256,7 @@
 .studentMenuLessonBlock {
   cursor: pointer;
   position: relative;
-  max-width: 190px;
-  min-width: 190px;
+  width: 190px;
   height: 100px;
   border-radius: 16px;
   border: 6px solid #426f77;
@@ -270,6 +269,29 @@
   text-align: center;
   transition: transform 0.3s ease;
   margin: 14px;
+}
+.studentMenuLessonBlock.inPool {
+  height: 120px;
+  width: 200px;
+  justify-content: flex-start;
+}
+.studentMenuLessonBlock.inPool .studentName {
+  margin-top: 5px;
+}
+.studentMenuLessonBlock.inPool .studentMenuLessonBlockTimePriceContainer {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+}
+.studentMenuLessonBlock.inPool .studentMenuLessonBlockTimePriceContainer .studentMenuLessonBlockTime,
+.studentMenuLessonBlock.inPool .studentMenuLessonBlockTimePriceContainer .studentMenuLessonBlockPrice {
+  font-size: 0.9rem;
+  margin: 4px 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .studentMenuLessonBlock .lessonBin {
   position: absolute;
@@ -312,6 +334,26 @@
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+.studentMenuLessonBlock .studentMenuLessonBlockTimeBlockContainer .studentMenuLessonBlockTimeBlock.inPool {
+  width: 40px;
+  height: 30px;
+  border: 2px solid white;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+}
+.studentMenuLessonBlock .studentMenuLessonBlockTimeBlockContainer .studentMenuLessonBlockTimeBlock.inPool:hover {
+  transform: scale(1.05);
+  border-color: #888;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+.studentMenuLessonBlock .studentMenuLessonBlockTimeBlockContainer .studentMenuLessonBlockTimeBlock.inPool.dragging {
+  cursor: grabbing;
+  position: fixed;
+  pointer-events: none; /* optional, makes things smoother */
 }
 
 .scheduleBlockContainer {
@@ -690,6 +732,37 @@
   justify-content: center;
   cursor: text;
   width: 35px;
+}
+
+.draggingLessonBlock {
+  width: 130px;
+  position: fixed;
+  z-index: 100;
+  border-radius: 0.375rem;
+  border: 1px solid #426f77;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.draggingLessonBlock .topPart,
+.draggingLessonBlock .bottomPart {
+  margin: 3px 0px;
+  width: 98%;
+  height: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.draggingLessonBlock .topPart p,
+.draggingLessonBlock .bottomPart p {
+  font-size: 12px;
+}
+.draggingLessonBlock .topPart .draggingLessonBlockLesson,
+.draggingLessonBlock .bottomPart .draggingLessonBlockLesson {
+  font-weight: bold;
 }
 
 body {
@@ -1071,4 +1144,13 @@ p {
 }
 .weekdaysContainer .slotContainer .time.firstRow.secondQuarter, .weekdaysContainer .slotContainer .time.firstRow.thirdQuarter, .weekdaysContainer .slotContainer .time.firstRow.fourthQuarter {
   display: none;
+}
+.weekdaysContainer .slotContainer .time.highlighted {
+  background-color: blue;
+}
+.weekdaysContainer .slotContainer .time.highlighted.first {
+  border-radius: 10px 10px 0 0;
+}
+.weekdaysContainer .slotContainer .time.highlighted.last {
+  border-radius: 0 0 10px 10px;
 }/*# sourceMappingURL=app.css.map */

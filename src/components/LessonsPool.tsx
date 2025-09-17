@@ -1,12 +1,12 @@
-import { useRecoilState } from "recoil";
-import { teacherInfoState } from "../states/TeacherInfo";
+import { useRecoilValue } from "recoil";
+import { teacherInfoState } from "../states/TeacherInfoState";
 import { Lesson } from "../models/lesson";
 import { useEffect, useState } from "react";
 import LessonBlock from "./main_components/reusable/LessonBlock";
 
 type Props = {};
-export default function Lessons(props: Props) {
-  const [teacherInfo, setTeacherInfo] = useRecoilState(teacherInfoState);
+export default function LessonsPool(props: Props) {
+  const teacherInfo = useRecoilValue(teacherInfoState);
   const [unscheduledLessons, setUnscheduledLessons] = useState<Lesson[]>([]);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export default function Lessons(props: Props) {
     if (teacherInfo) {
       for (let student of teacherInfo.students) {
         for (let lesson of student.lessons) {
-          if (lesson.lesson_info.timeBlocks.length === 0) {
+          if (lesson.lesson_info.timeBlocks.length > 0) {
             tempUnscheduledLessons.push(lesson);
           }
         }
@@ -37,6 +37,7 @@ export default function Lessons(props: Props) {
               lessonIndex={lessonIndex}
               setAddLessonMenuOn={() => {}}
               deleteLesson={() => {}}
+              inPool
             />
           );
         })}
